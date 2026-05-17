@@ -26,10 +26,10 @@ Use parentheses for module scope: `feat(content):`, `fix(tiktok):`, `refactor(mo
 
 ### Examples from Repository
 ```
-feat: 品牌资料库文档标签
-feat(login): 更新登录控制器中的注释和文档为中文
-refactor(mongodb): 移除materialGroup.repository中多余的type参数
-fix: 草稿箱创建缺失平台字段
+feat: Brand library document tag
+feat(login): Update login controller comments and docs to Chinese
+refactor(mongodb): Remove redundant type parameter in materialGroup.repository
+fix: Draft box creation missing platform field
 chore: add vitest setup and MCP unit tests
 ```
 
@@ -38,34 +38,34 @@ chore: add vitest setup and MCP unit tests
 ### Monorepo Structure (Nx)
 ```
 aitoearn-monorepo/
-├── apps/                          # Application services
-│   ├── aitoearn-admin-server/     # Admin backend
-│   ├── aitoearn-ai/               # AI service (MCP, agents)
-│   ├── aitoearn-channel/          # Channel integrations
-│   ├── aitoearn-payment/          # Payment processing
-│   ├── aitoearn-server/           # Main API server
-│   ├── aitoearn-task/             # Task management
-│   └── browser-automation-worker/ # Browser automation
-├── libs/                          # Shared libraries
-│   ├── common/                    # Common utilities, DTOs, enums
-│   ├── mongodb/                   # MongoDB schemas & repositories
-│   ├── task-db/                   # Task database layer
-│   ├── channel-db/                # Channel database layer
-│   ├── statistics-db/             # Statistics database
-│   ├── payment-db/                # Payment database
-│   ├── helpers/                   # Business helpers
-│   └── aitoearn-*-client/         # Inter-service clients
-└── CLAUDE.md                      # Development standards
+├── apps/ # Application services
+│ ├── aitoearn-admin-server/ # Admin backend
+│ ├── aitoearn-ai/ # AI service (MCP, agents)
+│ ├── aitoearn-channel/ # Channel integrations
+│ ├── aitoearn-payment/ # Payment processing
+│ ├── aitoearn-server/ # Main API server
+│ ├── aitoearn-task/ # Task management
+│ └── browser-automation-worker/ # Browser automation
+├── libs/ # Shared libraries
+│ ├── common/ # Common utilities, DTOs, enums
+│ ├── mongodb/ # MongoDB schemas & repositories
+│ ├── task-db/ # Task database layer
+│ ├── channel-db/ # Channel database layer
+│ ├── statistics-db/ # Statistics database
+│ ├── payment-db/ # Payment database
+│ ├── helpers/ # Business helpers
+│ └── aitoearn-*-client/ # Inter-service clients
+└── CLAUDE.md # Development standards
 ```
 
 ### NestJS Layered Architecture
 
 ```
-Controller (路由/参数绑定/响应转换)
-    ↓
-Service (业务编排/权限过滤)
-    ↓
-Repository (数据访问)
+Controller (routing/parameter binding/response transformation)
+ ↓
+Service (business orchestration/permission filtering)
+ ↓
+Repository (data access)
 ```
 
 **Rules:**
@@ -94,9 +94,9 @@ import { createZodDto, PaginationDtoSchema } from '@yikart/common'
 import { z } from 'zod'
 
 export const CreateOrderDtoSchema = z.object({
-  productId: z.string(),
-  quantity: z.number().int().positive().default(1),
-  returnTo: z.url().optional(),
+ productId: z.string(),
+ quantity: z.number().int().positive().default(1),
+ returnTo: z.url().optional(),
 })
 export class CreateOrderDto extends createZodDto(CreateOrderDtoSchema, 'CreateOrderDto') {}
 ```
@@ -107,9 +107,9 @@ import { createPaginationVo, createZodDto } from '@yikart/common'
 import { z } from 'zod'
 
 export const OrderDetailVoSchema = z.object({
-  id: z.string(),
-  amount: z.number(),
-  createdAt: z.date()
+ id: z.string(),
+ amount: z.number(),
+ createdAt: z.date()
 })
 export class OrderDetailVo extends createZodDto(OrderDetailVoSchema, 'OrderDetailVo') {}
 export class OrderListVo extends createPaginationVo(OrderDetailVoSchema, 'OrderListVo') {}
@@ -141,11 +141,11 @@ return new OrderListVo({ page, pageSize, total, totalPages, list })
 Must end with `WithPagination`: `listWithPagination`
 
 ### Forbidden Prefixes
-❌ `find` → ✅ `get` / `list`
-❌ `del` → ✅ `delete`
-❌ `add` → ✅ `create`
-❌ `set` → ✅ `update`
-❌ `check` → ✅ `get` + business logic in Service
+❌ `find` -> ✅ `get` / `list`
+❌ `del` -> ✅ `delete`
+❌ `add` -> ✅ `create`
+❌ `set` -> ✅ `update`
+❌ `check` -> ✅ `get` + business logic in Service
 
 ## Exception Handling
 

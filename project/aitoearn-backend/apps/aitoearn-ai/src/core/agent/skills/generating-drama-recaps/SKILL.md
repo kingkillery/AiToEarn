@@ -1,6 +1,6 @@
 ---
 name: generating-drama-recaps
-description: Generates narrated recap videos from short drama clips using AI-powered narration and voice synthesis. Use when user wants to create drama summary, narrated recap, voice-over video, drama commentary, drama explanation video, short drama recap, drama montage with narration. 短剧解说、短剧二创、戏剧解说、影视解说、视频解说、配音解说、AI解说视频、剧情解说、短视频解说、短剧混剪解说。
+description: Generates narrated recap videos from short drama clips using AI-powered narration and voice synthesis. Use when user wants to create drama summary, narrated recap, voice-over video, drama commentary, drama explanation video, short drama recap, drama montage with narration. short-drama recap, secondary creation of short dramas, drama commentary, film/TV commentary, video commentary, dubbed commentary, AI recap video, plot explanation, short video commentary, short-drama mashup recap.
 ---
 
 # Drama Recap Generation
@@ -60,15 +60,15 @@ On completion, return the output video URL and VID to user.
 
 ## Narration Style Options
 
-| Style    | Description             |
+| Style | Description |
 | -------- | ----------------------- |
-| 生动有趣 | Vivid and interesting   |
-| 幽默搞笑 | Humorous and funny      |
-| 悬疑紧张 | Suspenseful and tense   |
-| 轻松愉快 | Light and pleasant      |
-| 感人温馨 | Touching and warm       |
-| 热血激昂 | Passionate and exciting |
-| 浪漫甜蜜 | Romantic and sweet      |
+| Vivid and interesting | Vivid and interesting |
+| Humorous and funny | Humorous and funny |
+| Suspenseful and tense | Suspenseful and tense |
+| Light and pleasant | Light and pleasant |
+| Touching and warm | Touching and warm |
+| Passionate and exciting | Passionate and exciting |
+| Romantic and sweet | Romantic and sweet |
 
 ## Examples
 
@@ -76,9 +76,9 @@ On completion, return the output video URL and VID to user.
 
 ```
 1. submitDramaRecapTask:
-   - vids: ["vid://xxx", "vid://yyy", "vid://zzz"]
-   - recapStyle: "生动有趣"
-   - recapTextSpeed: 1.2
+ - vids: ["vid://xxx", "vid://yyy", "vid://zzz"]
+ - recapStyle: "Vivid and interesting"
+ - recapTextSpeed: 1.2
 2. Wait 180 seconds
 3. Poll getDramaRecapTaskStatus until completed
 4. Return output video URL
@@ -88,8 +88,8 @@ On completion, return the output video URL and VID to user.
 
 ```
 1. submitDramaRecapTask:
-   - vids: ["vid://xxx"]
-   - recapText: "这是一个关于爱情与冒险的故事..."
+ - vids: ["vid://xxx"]
+ - recapText: "This is a story about love and adventure..."
 2. Wait 180 seconds
 3. Poll getDramaRecapTaskStatus until completed
 4. Return output video URL
@@ -99,9 +99,9 @@ On completion, return the output video URL and VID to user.
 
 ```
 1. submitDramaRecapTask:
-   - vids: ["vid://xxx", "vid://yyy"]
-   - batchGenerateCount: 3
-   - recapStyle: "轻松愉快"
+ - vids: ["vid://xxx", "vid://yyy"]
+ - batchGenerateCount: 3
+ - recapStyle: "Light and pleasant"
 2. Wait 180 seconds
 3. Poll getDramaRecapTaskStatus until completed
 4. Return multiple output URLs

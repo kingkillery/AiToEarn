@@ -1,6 +1,6 @@
 ---
 name: crawling-social-media
-description: Downloads and extracts content from social media platforms. Use when user wants to crawl, download, or extract videos/content from Bilibili, YouTube, TikTok, Douyin, Instagram, Twitter, Xiaohongshu. 下载视频、抓取视频、爬取内容、提取视频、下载B站视频、下载抖音视频、下载YouTube视频、视频采集。
+description: Downloads and extracts content from social media platforms. Use when user wants to crawl, download, or extract videos/content from Bilibili, YouTube, TikTok, Douyin, Instagram, Twitter, Xiaohongshu. Video,Video,,extractVideo,BilibiliVideo,DouyinVideo,YouTubeVideo,Video.
 ---
 
 # Social Media Crawling
@@ -9,14 +9,14 @@ Downloads and extracts content from social media platforms.
 
 ## Supported Platforms and URL Patterns
 
-| Platform    | URL Pattern Examples                                 |
+| Platform | URL Pattern Examples |
 | ----------- | ---------------------------------------------------- |
-| Bilibili    | `bilibili.com/video/BVxxxx`, `b23.tv/xxxxx`          |
-| YouTube     | `youtube.com/watch?v=xxx`, `youtu.be/xxx`            |
-| TikTok      | `tiktok.com/@user/video/xxx`, `vm.tiktok.com/xxx`    |
-| Douyin      | `douyin.com/video/xxx`, `v.douyin.com/xxx`           |
-| Xiaohongshu | `xiaohongshu.com/explore/xxx`, `xhslink.com/xxx`     |
-| Kuaishou    | `kuaishou.com/short-video/xxx`, `v.kuaishou.com/xxx` |
+| Bilibili | `bilibili.com/video/BVxxxx`, `b23.tv/xxxxx` |
+| YouTube | `youtube.com/watch?v=xxx`, `youtu.be/xxx` |
+| TikTok | `tiktok.com/@user/video/xxx`, `vm.tiktok.com/xxx` |
+| Douyin | `douyin.com/video/xxx`, `v.douyin.com/xxx` |
+| Xiaohongshu | `xiaohongshu.com/explore/xxx`, `xhslink.com/xxx` |
+| Kuaishou | `kuaishou.com/short-video/xxx`, `v.kuaishou.com/xxx` |
 
 ## Supported Content Types
 
@@ -32,7 +32,7 @@ Use this skill when user:
 - Wants to download/save videos from social platforms
 - Wants to extract content for re-publishing
 - Needs video metadata (title, description, tags)
-- Mentions keywords like: download, save, crawl, extract, 下载, 抓取, 爬取
+- Mentions keywords like: download, save, crawl, extract, , ,
 
 **Do NOT use** when:
 
@@ -71,7 +71,7 @@ On success, return:
 
 ```
 1. createCrawlTask:
-   - link: "https://www.bilibili.com/video/BV1xx..."
+ - link: "https://www.bilibili.com/video/BV1xx..."
 2. Wait 30 seconds
 3. Poll getCrawlTaskStatus until success
 4. Return video URL, title, description, tags
@@ -79,11 +79,11 @@ On success, return:
 
 ### Example 2: Download from Short Link
 
-**User request**: "下载这个视频 https://v.douyin.com/xxx"
+**User request**: "download this video https://v.douyin.com/xxx"
 
 ```
 1. createCrawlTask:
-   - link: "https://v.douyin.com/xxx"
+ - link: "https://v.douyin.com/xxx"
 2. Wait 30 seconds
 3. Poll getCrawlTaskStatus until success
 4. Return video URL, title, description, tags
@@ -101,12 +101,12 @@ On success, return:
 
 ## Task Status Values
 
-| Status  | Description                    |
+| Status | Description |
 | ------- | ------------------------------ |
 | pending | Task created, waiting to start |
-| running | Task is actively processing    |
-| success | Task completed successfully    |
-| failed  | Task failed with error         |
+| running | Task is actively processing |
+| success | Task completed successfully |
+| failed | Task failed with error |
 
 ## Important Notes
 

@@ -1,6 +1,6 @@
 ---
 name: removing-subtitles
-description: Removes hardcoded subtitles from videos using AI inpainting. Use when user wants to remove subtitles, erase text from video, clean video from captions, delete burned-in subtitles, remove video watermarks, clean hardcoded text, or strip embedded subtitles. 去字幕、去除字幕、删除字幕、清除字幕、去硬字幕、去水印、擦除字幕、移除字幕。
+description: Removes hardcoded subtitles from videos using AI inpainting. Use when user wants to remove subtitles, erase text from video, clean video from captions, delete burned-in subtitles, remove video watermarks, clean hardcoded text, or strip embedded subtitles. subtitle removal, remove subtitles, delete subtitles, clear subtitles, remove hard subtitles, remove watermark, erase subtitles, remove subtitles.
 ---
 
 # Subtitle Removal
@@ -61,8 +61,8 @@ On completion, return the clean video URL.
 
 ```
 submitAideoTask:
-  prompt: "Remove all hardcoded subtitles from this video"
-  multiInputs: ["video_with_subtitles.mp4"]
+ prompt: "Remove all hardcoded subtitles from this video"
+ multiInputs: ["video_with_subtitles.mp4"]
 ```
 
 ### Example 2: Clean Video for Re-subtitling
@@ -71,8 +71,8 @@ submitAideoTask:
 
 ```
 submitAideoTask:
-  prompt: "Erase all burned-in subtitles from this video to prepare for new subtitles"
-  multiInputs: ["original_video.mp4"]
+ prompt: "Erase all burned-in subtitles from this video to prepare for new subtitles"
+ multiInputs: ["original_video.mp4"]
 ```
 
 ### Example 3: Remove Text Overlays
@@ -81,8 +81,8 @@ submitAideoTask:
 
 ```
 submitAideoTask:
-  prompt: "Remove the hardcoded text overlay at the bottom of this video"
-  multiInputs: ["video_with_text.mp4"]
+ prompt: "Remove the hardcoded text overlay at the bottom of this video"
+ multiInputs: ["video_with_text.mp4"]
 ```
 
 ## Important Notes

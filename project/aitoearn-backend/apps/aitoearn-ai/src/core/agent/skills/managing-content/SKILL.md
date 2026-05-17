@@ -1,6 +1,6 @@
 ---
 name: managing-content
-description: Manages media files, drafts, and content organization. Use when user needs to upload media, create drafts, organize content, save to library, or manage media groups. 内容管理、媒体管理、保存媒体、创建草稿、素材管理、上传视频、保存到素材库。
+description: Manages media files, drafts, and content organization. Use when user needs to upload media, create drafts, organize content, save to library, or manage media groups. content management, media management, save media, create drafts, asset management, upload videos, save to asset library.
 ---
 
 # Content Management
@@ -40,12 +40,12 @@ Return the created media ID or draft ID.
 
 ```
 1. getMediaGroupInfoByName:
-   - title: "My Videos"
+ - title: "My Videos"
 2. createMedia:
-   - groupId: from step 1
-   - type: "VIDEO"
-   - url: generated video URL
-   - title: "My Generated Video"
+ - groupId: from step 1
+ - type: "VIDEO"
+ - url: generated video URL
+ - title: "My Generated Video"
 3. Return media ID
 ```
 
@@ -53,18 +53,18 @@ Return the created media ID or draft ID.
 
 ```
 1. getDraftGroupInfoByName:
-   - title: "Drafts"
+ - title: "Drafts"
 2. createDraft:
-   - groupId: from step 1
-   - title: "Video Title"
-   - type: "VIDEO"
-   - mediaList: [{ url: "video.mp4", type: "VIDEO" }]
+ - groupId: from step 1
+ - title: "Video Title"
+ - type: "VIDEO"
+ - mediaList: [{ url: "video.mp4", type: "VIDEO" }]
 3. Return draft ID
 ```
 
 ## Media Types
 
-| Type  | Description            |
+| Type | Description |
 | ----- | ---------------------- |
 | VIDEO | Video files (MP4, MOV) |
 | IMAGE | Image files (JPG, PNG) |
@@ -72,10 +72,10 @@ Return the created media ID or draft ID.
 
 ## Material Types
 
-| Type    | Description          |
+| Type | Description |
 | ------- | -------------------- |
-| VIDEO   | Video-based content  |
-| IMAGE   | Image-based content  |
+| VIDEO | Video-based content |
+| IMAGE | Image-based content |
 | ARTICLE | Text/article content |
 
 ## Important Notes

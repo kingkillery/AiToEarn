@@ -1,95 +1,95 @@
-# Lib 工具库文档
+# Lib
 
-本目录包含项目通用的工具函数和封装库。
+utility functions.
 
-## 文件列表
+##
 
-| 文件                     | 描述                                        |
+| | Description |
 | ------------------------ | ------------------------------------------- |
-| `toast.ts`               | Toast 消息提示工具，替代 antd message       |
-| `confirm.tsx`            | 命令式确认弹窗工具，替代 antd Modal.confirm |
-| `utils.ts`               | 通用工具函数                                |
-| `vip.ts`                 | VIP 状态判断工具函数                        |
-| `i18n/languageConfig.ts` | 语言配置中心，统一管理语言相关配置          |
+| `toast.ts` | Toast , antd message |
+| `confirm.tsx` | Modal, antd Modal.confirm |
+| `utils.ts` | utility functions |
+| `vip.ts` | VIP utility functions |
+| `i18n/languageConfig.ts` | , |
 
 ---
 
-## toast.ts - 消息提示工具
+## toast.ts -
 
-基于 [sonner](https://sonner.emilkowal.ski/) 封装的 Toast 消息提示工具，**用于替代 antd 的 `message` 组件**。
+ [sonner](https://sonner.emilkowal.ski/) Toast ,** antd `message` **.
 
-### 导入方式
+###
 
 ```typescript
 import { toast } from '@/lib/toast'
-// 或
+//
 import toast from '@/lib/toast'
 ```
 
 ### API
 
-| 方法                               | 说明                        | 参数                |
+| Method | Description | parameters |
 | ---------------------------------- | --------------------------- | ------------------- |
-| `toast.success(content, options?)` | 成功消息（绿色）            | `content`: 消息内容 |
-| `toast.error(content, options?)`   | 错误消息（红色）            | `content`: 消息内容 |
-| `toast.warning(content, options?)` | 警告消息（黄色）            | `content`: 消息内容 |
-| `toast.info(content, options?)`    | 信息消息（蓝色）            | `content`: 消息内容 |
-| `toast.loading(content, options?)` | 加载消息（带 loading 图标） | `content`: 消息内容 |
-| `toast.open(options)`              | 自定义类型消息（兼容 antd） | 见下方              |
-| `toast.destroy(key?)`              | 关闭指定/所有消息           | `key`: 消息 ID      |
-| `toast.dismiss(key?)`              | 关闭指定/所有消息（别名）   | `key`: 消息 ID      |
-| `toast.dismissAll()`               | 关闭所有消息                | -                   |
+| `toast.success(content, options?)` | Success() | `content`: |
+| `toast.error(content, options?)` | Wrong() | `content`: |
+| `toast.warning(content, options?)` | () | `content`: |
+| `toast.info(content, options?)` | () | `content`: |
+| `toast.loading(content, options?)` | ( loading ) | `content`: |
+| `toast.open(options)` | Type( antd) | |
+| `toast.destroy(key?)` | / | `key`: ID |
+| `toast.dismiss(key?)` | /() | `key`: ID |
+| `toast.dismissAll()` | | - |
 
-### Options 参数
+### Options parameters
 
 ```typescript
 type ToastOptions = {
-  key?: string // 消息唯一标识（用于更新/关闭）
-  id?: string // 同 key
-  duration?: number // 显示时长（秒），loading 默认 Infinity
-  content?: React.ReactNode // 消息内容（用于对象形式调用）
+ key?: string // (/)
+ id?: string // key
+ duration?: number // (),loading Infinity
+ content?: React.ReactNode // ()
 }
 ```
 
-### 使用示例
+### use
 
 ```typescript
-// 基本用法
-toast.success('保存成功')
-toast.error('操作失败')
-toast.warning('请注意')
-toast.info('提示信息')
+//
+toast.success('Success')
+toast.error('Fail')
+toast.warning('')
+toast.info('')
 
-// 带 options
-toast.success('保存成功', { duration: 5 })
+// options
+toast.success('Success', { duration: 5 })
 
-// loading 状态
-const toastId = toast.loading('加载中...')
-// 完成后关闭
+// loading
+const toastId = toast.loading('...')
+//
 toast.dismiss(toastId)
 
-// 兼容 antd message.open 写法
+// antd message.open
 toast.open({
-  type: 'success',
-  content: '操作成功',
-  key: 'unique-key',
-  duration: 3,
+ type: 'success',
+ content: 'Success',
+ key: 'unique-key',
+ duration: 3,
 })
 ```
 
-### 注意事项
+### Notes
 
-- ⚠️ **禁止使用 antd 的 `message` 组件**，统一使用此工具
-- `duration` 参数单位为**秒**（内部会转换为毫秒）
-- `loading` 类型默认不会自动关闭，需手动调用 `dismiss`
+- ⚠️ **use antd `message` **,use
+- `duration` parameters****()
+- `loading` Typewill automatically, `dismiss`
 
 ---
 
-## confirm.tsx - 命令式确认弹窗
+## confirm.tsx - Modal
 
-基于 [shadcn/ui AlertDialog](https://ui.shadcn.com/docs/components/alert-dialog) 封装的命令式确认弹窗，**用于替代 antd 的 `Modal.confirm` 方法**。
+ [shadcn/ui AlertDialog](https://ui.shadcn.com/docs/components/alert-dialog) Modal,** antd `Modal.confirm` Method**.
 
-### 导入方式
+###
 
 ```typescript
 import { confirm } from '@/lib/confirm'
@@ -97,184 +97,184 @@ import { confirm } from '@/lib/confirm'
 
 ### API
 
-| 参数                | 说明                 | 类型                        | 默认值       |
+| parameters | Description | Type | Value |
 | ------------------- | -------------------- | --------------------------- | ------------ |
-| `title`             | 标题                 | `React.ReactNode`           | `"Confirm"`  |
-| `content`           | 内容描述             | `React.ReactNode`           | -            |
-| `okText`            | 确认按钮文本         | `React.ReactNode`           | `"Confirm"`  |
-| `cancelText`        | 取消按钮文本         | `React.ReactNode`           | `"Cancel"`   |
-| `onOk`              | 确认回调（支持异步） | `() => Promise<any> \| any` | -            |
-| `onCancel`          | 取消回调（支持异步） | `() => Promise<any> \| any` | -            |
-| `okButtonProps`     | 确认按钮属性         | `ButtonProps`               | -            |
-| `cancelButtonProps` | 取消按钮属性         | `ButtonProps`               | -            |
-| `icon`              | 自定义图标           | `React.ReactNode`           | 黄色警告图标 |
+| `title` | | `React.ReactNode` | `"Confirm"` |
+| `content` | Description | `React.ReactNode` | - |
+| `okText` | | `React.ReactNode` | `"Confirm"` |
+| `cancelText` | | `React.ReactNode` | `"Cancel"` |
+| `onOk` | () | `() => Promise<any> \| any` | - |
+| `onCancel` | () | `() => Promise<any> \| any` | - |
+| `okButtonProps` | property | `ButtonProps` | - |
+| `cancelButtonProps` | property | `ButtonProps` | - |
+| `icon` | | `React.ReactNode` | |
 
-### 返回值
+### Value
 
-返回 `Promise<boolean>`：
+ `Promise<boolean>`:
 
-- `true`：用户点击确认
-- `false`：用户点击取消
+- `true`:
+- `false`:
 
-### 使用示例
+### use
 
 ```typescript
-// 基本用法
+//
 const result = await confirm({
-  title: '删除确认',
-  content: '确定要删除此项吗？此操作不可恢复。',
+ title: '',
+ content: '？.',
 })
 
 if (result) {
-  // 用户确认
-  await deleteItem()
+ //
+ await deleteItem()
 }
 
-// 带异步回调
+//
 await confirm({
-  title: '提交确认',
-  content: '确定要提交吗？',
-  okText: '提交',
-  cancelText: '取消',
-  onOk: async () => {
-    await submitData()
-  },
+ title: '',
+ content: '？',
+ okText: '',
+ cancelText: '',
+ onOk: async () => {
+ await submitData()
+ },
 })
 
-// 自定义按钮样式
+//
 await confirm({
-  title: '危险操作',
-  content: '此操作将永久删除数据',
-  okButtonProps: {
-    className: 'bg-red-500 hover:bg-red-600',
-  },
+ title: '',
+ content: '',
+ okButtonProps: {
+ className: 'bg-red-500 hover:bg-red-600',
+ },
 })
 ```
 
-### 注意事项
+### Notes
 
-- ⚠️ **禁止使用 antd 的 `Modal.confirm`**，统一使用此工具
-- 此组件为命令式调用，会自动创建和销毁 DOM 节点
-- `onOk` 回调执行期间会显示 loading 状态
-- 如果 `onOk` 抛出异常，Promise 会 reject
+- ⚠️ **use antd `Modal.confirm`**,use
+- ,will automatically DOM
+- `onOk` loading
+- `onOk` ,Promise reject
 
 ---
 
-## utils.ts - 通用工具函数
+## utils.ts - utility functions
 
-### cn - 类名合并工具
+### cn -
 
-合并 Tailwind CSS 类名，自动处理冲突和条件类名。基于 `clsx` + `tailwind-merge`。
+ Tailwind CSS ,. `clsx` + `tailwind-merge`.
 
-#### 导入方式
+####
 
 ```typescript
 import { cn } from '@/lib/utils'
 ```
 
-#### 使用示例
+#### use
 
 ```typescript
-// 基本合并
+//
 cn('px-4 py-2', 'bg-blue-500')
 // => 'px-4 py-2 bg-blue-500'
 
-// 条件类名
+//
 cn('base-class', isActive && 'active-class')
-// => 'base-class active-class' 或 'base-class'
+// => 'base-class active-class' 'base-class'
 
-// 对象语法
+// syntax
 cn('base', { 'text-red-500': hasError, 'text-green-500': !hasError })
 
-// 处理 Tailwind 类冲突
+// Tailwind
 cn('px-4', 'px-6')
-// => 'px-6' (后者覆盖前者)
+// => 'px-6' ()
 
-// 在组件中使用
+// use
 <div className={cn('default-styles', className, {
-  'opacity-50': disabled
+ 'opacity-50': disabled
 })}>
 ```
 
-#### 为什么使用 cn？
+#### use cn？
 
-### formatRelativeTime - 相对时间格式化
+### formatRelativeTime -
 
-格式化相对时间，如"刚刚"、"5分钟前"、"3天前"等。
+,"just now","5","3".
 
-#### 导入方式
+####
 
 ```typescript
 import { formatRelativeTime } from '@/lib/utils'
 ```
 
-#### 使用示例
+#### use
 
 ```typescript
-// 传入 Date 对象
+// Date
 formatRelativeTime(new Date())
-// => '刚刚'
+// => 'just now'
 
-// 传入时间戳
+//
 formatRelativeTime(Date.now() - 60000)
-// => '1分钟前'
+// => '1'
 
-// 超过 7 天显示具体日期
+// 7 Date
 formatRelativeTime(new Date('2024-01-01'))
 // => '2024-01-01'
 ```
 
-#### 返回值
+#### Value
 
-| 时间差    | 返回值       |
+| | Value |
 | --------- | ------------ |
-| < 1 分钟  | "刚刚"       |
-| < 1 小时  | "X分钟前"    |
-| < 24 小时 | "X小时前"    |
-| < 7 天    | "X天前"      |
-| >= 7 天   | "YYYY-MM-DD" |
+| < 1 | "just now" |
+| < 1 | "X" |
+| < 24 | "X" |
+| < 7 | "X" |
+| >= 7 | "YYYY-MM-DD" |
 
-1. **解决类名冲突**：`tailwind-merge` 会智能合并冲突的 Tailwind 类
-2. **条件类名**：`clsx` 支持条件表达式、数组、对象等多种语法
-3. **类型安全**：完整的 TypeScript 支持
-
----
-
-## 新增工具方法规范
-
-在添加新的工具方法前，请：
-
-1. 检查本文档确认是否已存在类似功能
-2. 确认是否属于通用工具（非业务逻辑）
-3. 添加完整的 JSDoc 注释
-4. 更新本文档
+1. **Solution**:`tailwind-merge` Tailwind
+2. ****:`clsx` ,,syntax
+3. **Type**: TypeScript
 
 ---
 
-## vip.ts - VIP 状态判断工具
+## NewMethodspecification
 
-用于解析 VIP 状态字符串，返回详细的状态信息和会员等级。
+addMethod,:
 
-### 导入方式
+1. Checkthis documentalready existsFunction
+2. ()
+3. add JSDoc
+4. this document
+
+---
+
+## vip.ts - VIP
+
+ VIP ,.
+
+###
 
 ```typescript
 import { getVipStatusInfo, getVipTier, canUpgrade } from '@/lib/vip'
 import type { VipStatusInfo, VipTier } from '@/lib/vip'
 ```
 
-### 类型定义
+### Type
 
 ```typescript
-// 会员等级
+//
 type VipTier = 'free' | 'go' | 'plus' | 'ultra'
 
-// VIP 状态信息
+// VIP
 interface VipStatusInfo {
-  isVip: boolean // 是否为 VIP
-  isMonthly: boolean // 是否为月度会员
-  isYearly: boolean // 是否为年度会员
-  isAutoRenew: boolean // 是否自动续费
-  isOnce: boolean // 是否为一次性购买
+ isVip: boolean // VIP
+ isMonthly: boolean //
+ isYearly: boolean //
+ isAutoRenew: boolean //
+ isOnce: boolean //
 }
 ```
 
@@ -282,151 +282,151 @@ interface VipStatusInfo {
 
 #### getVipStatusInfo(status: string): VipStatusInfo
 
-根据 VIP 状态字符串获取详细状态信息。
+ VIP .
 
-##### 状态映射
+#####
 
-| 状态值               | isVip | isMonthly | isYearly | isAutoRenew | isOnce |
+| Value | isVip | isMonthly | isYearly | isAutoRenew | isOnce |
 | -------------------- | ----- | --------- | -------- | ----------- | ------ |
-| `none`               | false | false     | false    | false       | false  |
-| `trialing`           | true  | false     | false    | false       | false  |
-| `monthly_once`       | true  | true      | false    | false       | true   |
-| `yearly_once`        | true  | false     | true     | false       | true   |
-| `active_go`          | true  | false     | false    | true        | false  |
-| `active_monthly`     | true  | true      | false    | true        | false  |
-| `active_yearly`      | true  | false     | true     | true        | false  |
-| `active_ultra`       | true  | false     | false    | true        | false  |
-| `active_nonrenewing` | true  | false     | false    | false       | false  |
-| `expired`            | false | false     | false    | false       | false  |
+| `none` | false | false | false | false | false |
+| `trialing` | true | false | false | false | false |
+| `monthly_once` | true | true | false | false | true |
+| `yearly_once` | true | false | true | false | true |
+| `active_go` | true | false | false | true | false |
+| `active_monthly` | true | true | false | true | false |
+| `active_yearly` | true | false | true | true | false |
+| `active_ultra` | true | false | false | true | false |
+| `active_nonrenewing` | true | false | false | false | false |
+| `expired` | false | false | false | false | false |
 
 #### getVipTier(status: string): VipTier
 
-根据 VIP 状态获取会员等级。
+ VIP .
 
-##### 等级映射
+#####
 
-| 状态值                                                           | 返回等级                        |
+| Value | |
 | ---------------------------------------------------------------- | ------------------------------- |
-| `active_go`                                                      | `'go'`                          |
-| `active_monthly`, `monthly_once`, `active_yearly`, `yearly_once` | `'plus'`                        |
-| `active_ultra`                                                   | `'ultra'`                       |
-| `trialing`                                                       | `'plus'` (试用期默认 Plus 体验) |
-| 其他                                                             | `'free'`                        |
+| `active_go` | `'go'` |
+| `active_monthly`, `monthly_once`, `active_yearly`, `yearly_once` | `'plus'` |
+| `active_ultra` | `'ultra'` |
+| `trialing` | `'plus'` ( Plus ) |
+| | `'free'` |
 
 #### canUpgrade(tier: VipTier): boolean
 
-判断当前会员等级是否可以升级。
+.
 
-| 等级    | 可升级                     |
+| | |
 | ------- | -------------------------- |
-| `free`  | false                      |
-| `go`    | true (可升级到 Plus/Ultra) |
-| `plus`  | true (可升级到 Ultra)      |
-| `ultra` | false (已是最高级别)       |
+| `free` | false |
+| `go` | true ( Plus/Ultra) |
+| `plus` | true ( Ultra) |
+| `ultra` | false () |
 
-### 使用示例
+### use
 
 ```typescript
 import { getVipStatusInfo, getVipTier, canUpgrade } from '@/lib/vip'
 
-// 获取详细状态信息
+//
 const statusInfo = getVipStatusInfo(userInfo.vipInfo.status)
 
 if (statusInfo.isVip) {
-  // 用户是 VIP
+ // VIP
 }
 
 if (statusInfo.isMonthly && statusInfo.isAutoRenew) {
-  // 用户是连续包月会员
+ //
 }
 
-// 获取会员等级
+//
 const tier = getVipTier(userInfo.vipInfo.status)
 // => 'go' | 'plus' | 'ultra' | 'free'
 
-// 判断是否可以升级
+//
 if (canUpgrade(tier)) {
-  // 显示升级按钮
+ //
 }
 ```
 
 ---
 
-## i18n/languageConfig.ts - 语言配置中心
+## i18n/languageConfig.ts -
 
-统一管理项目中所有语言相关配置，避免硬编码语言判断逻辑。
+,.
 
-### 导入方式
+###
 
 ```typescript
 import {
-  getDayjsLocale,
-  getDateLocale,
-  getHreflang,
-  getAllLanguageOptions,
-  isChineseLanguage,
+ getDayjsLocale,
+ getDateLocale,
+ getHreflang,
+ getAllLanguageOptions,
+ isChineseLanguage,
 } from '@/lib/i18n/languageConfig'
 ```
 
 ### API
 
-| 函数                       | 说明                                  | 返回值                               |
+| | Description | Value |
 | -------------------------- | ------------------------------------- | ------------------------------------ |
-| `getDayjsLocale(lng)`      | 获取 dayjs/FullCalendar 使用的 locale | `string`（如 'zh-cn', 'en-gb'）      |
-| `getDateLocale(lng)`       | 获取 toLocaleDateString 使用的 locale | `string`（如 'zh-CN', 'en-US'）      |
-| `getHreflang(lng)`         | 获取 SEO hreflang 属性值              | `string`（如 'zh', 'en'）            |
-| `getAllLanguageOptions()`  | 获取所有语言选项（用于下拉框）        | `{ value: string, label: string }[]` |
-| `isChineseLanguage(lng)`   | 判断是否为中文语言                    | `boolean`                            |
-| `isSupportedLanguage(lng)` | 判断是否为支持的语言                  | `boolean`                            |
+| `getDayjsLocale(lng)` | dayjs/FullCalendar use locale | `string`( 'zh-cn', 'en-gb') |
+| `getDateLocale(lng)` | toLocaleDateString use locale | `string`( 'zh-CN', 'en-US') |
+| `getHreflang(lng)` | SEO hreflang propertyValue | `string`( 'zh', 'en') |
+| `getAllLanguageOptions()` | () | `{ value: string, label: string }[]` |
+| `isChineseLanguage(lng)` | | `boolean` |
+| `isSupportedLanguage(lng)` | | `boolean` |
 
-### 使用示例
+### use
 
 ```typescript
-// 获取 dayjs locale
+// dayjs locale
 const dayjsLocale = getDayjsLocale(lng)
 dayjs.locale(dayjsLocale)
 
-// 格式化日期
+// Date
 const dateStr = new Date().toLocaleDateString(getDateLocale(lng), {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
+ year: 'numeric',
+ month: 'long',
+ day: 'numeric',
 })
 
-// 语言选择下拉框
+//
 const options = getAllLanguageOptions()
-// => [{ value: 'en', label: 'English' }, { value: 'zh-CN', label: '简体中文' }]
+// => [{ value: 'en', label: 'English' }, { value: 'zh-CN', label: '' }]
 
 // SEO hreflang
 const alternates = languages.map((lang) => ({
-  href: `${baseUrl}/${lang}`,
-  hreflang: getHreflang(lang),
+ href: `${baseUrl}/${lang}`,
+ hreflang: getHreflang(lang),
 }))
 
-// 判断中文
+//
 if (isChineseLanguage(lng)) {
-  // 中文特殊处理
+ //
 }
 ```
 
-### 添加新语言
+### add
 
-在 `src/lib/i18n/languageConfig.ts` 的 `LANGUAGE_METADATA` 中添加配置：
+ `src/lib/i18n/languageConfig.ts` `LANGUAGE_METADATA` add:
 
 ```typescript
 export const LANGUAGE_METADATA: Record<string, LanguageMetadata> = {
-  // ... 现有语言
-  ja: {
-    code: 'ja',
-    label: '日本語',
-    dayjsLocale: 'ja',
-    hreflang: 'ja',
-    dateLocale: 'ja-JP',
-  },
+ // ...
+ ja: {
+ code: 'ja',
+ label: '',
+ dayjsLocale: 'ja',
+ hreflang: 'ja',
+ dateLocale: 'ja-JP',
+ },
 }
 ```
 
-### 注意事项
+### Notes
 
-- ⚠️ **禁止硬编码语言判断**，统一使用此工具的函数
-- 添加新语言时，还需在 `src/app/i18n/settings.ts` 的 `languages` 数组中添加语言代码
+- ⚠️ ****,use
+- add, `src/app/i18n/settings.ts` `languages` add

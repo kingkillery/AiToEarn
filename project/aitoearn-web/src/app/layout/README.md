@@ -1,67 +1,67 @@
-# Layout 布局组件文档
+# Layout component documentation
 
-本目录包含应用全局布局相关组件。
+.
 
-## 目录结构
+## Directory structure
 
-| 目录/文件         | 描述                         |
+| / | Description |
 | ----------------- | ---------------------------- |
-| `LayoutSidebar/`  | 桌面端左侧侧边栏组件         |
-| `MobileNav/`      | 移动端顶部导航组件（抽屉式） |
-| `Providers.tsx`   | 全局 Provider 包装组件       |
-| `routerData.tsx`  | 路由/导航数据配置（含图标）  |
-| `layout.utils.ts` | 布局工具函数                 |
-| `images/`         | 布局相关图片资源             |
+| `LayoutSidebar/` | |
+| `MobileNav/` | mobile() |
+| `Providers.tsx` | Provider |
+| `routerData.tsx` | /() |
+| `layout.utils.ts` | utility functions |
+| `images/` | |
 
 ---
 
-## LayoutSidebar - 桌面端侧边栏
+## LayoutSidebar -
 
-左侧侧边栏布局组件，使用 Tailwind CSS + shadcn/ui 实现。
+,use Tailwind CSS + shadcn/ui Implementation.
 
-**功能：**
+**Function:**
 
-- Logo 区域
-- 主导航菜单（使用 `routerData` 数据和图标）
-- 底部功能区：邮箱、设置、通知、用户头像/登录按钮
+- Logo
+- (use `routerData` )
+- Function:,,,/
 
-**响应式：** 桌面端（md 及以上）显示，移动端隐藏
-
----
-
-## MobileNav - 移动端导航
-
-移动端顶部导航组件，使用 Tailwind CSS + shadcn/ui 实现。
-
-**功能：**
-
-- 固定顶部栏（Logo + 菜单按钮）
-- 抽屉式导航菜单
-- 登录按钮（未登录时显示）
-
-**响应式：** 移动端（md 以下）显示，桌面端隐藏
+**:** (md ),mobile
 
 ---
 
-## routerData - 导航数据配置
+## MobileNav - mobile
 
-定义导航菜单数据，包含图标。
+mobile,use Tailwind CSS + shadcn/ui Implementation.
+
+**Function:**
+
+- (Logo + )
+-
+- ()
+
+**:** mobile(md ),
+
+---
+
+## routerData -
+
+,.
 
 ```tsx
 import { routerData } from '@/app/layout/routerData'
 
 interface IRouterDataItem {
-  name: string // 导航标题
-  translationKey: string // 翻译键
-  path?: string // 跳转链接
-  icon?: React.ReactNode // 图标（Lucide）
-  children?: IRouterDataItem[]
+ name: string //
+ translationKey: string //
+ path?: string //
+ icon?: React.ReactNode // (Lucide)
+ children?: IRouterDataItem[]
 }
 ```
 
 ---
 
-## Providers - 全局 Provider
+## Providers - Provider
 
 ```tsx
 import { Providers } from '@/app/layout/Providers'

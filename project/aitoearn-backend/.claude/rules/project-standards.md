@@ -34,12 +34,12 @@
 - ✅ `updateById` / `updateByStatus` / `updateManyByIds`
 - ✅ `deleteById` / `deleteByUserId` / `deleteManyByIds`
 - ✅ `countByUserId` / `countByStatus` / `aggregateByDate`
-- ❌ `findById` → `getById`
-- ❌ `findList` → `listWithPagination`
-- ❌ `delOne` → `deleteById`
-- ❌ `addUseCount` → `updateUseCountById`
-- ❌ `recharge` → `updateRechargeById`
-- ❌ `markAsRead` → `updateAsReadByIds`
+- ❌ `findById` -> `getById`
+- ❌ `findList` -> `listWithPagination`
+- ❌ `delOne` -> `deleteById`
+- ❌ `addUseCount` -> `updateUseCountById`
+- ❌ `recharge` -> `updateRechargeById`
+- ❌ `markAsRead` -> `updateAsReadByIds`
 
 ## DTO (Input)
 
@@ -51,9 +51,9 @@ import { createZodDto, PaginationDtoSchema } from '@yikart/common';
 import { z } from 'zod';
 
 export const CreateOrderDtoSchema = z.object({
-  productId: z.string(),
-  quantity: z.number().int().positive().default(1),
-  returnTo: z.url().optional(),
+ productId: z.string(),
+ quantity: z.number().int().positive().default(1),
+ returnTo: z.url().optional(),
 });
 export class CreateOrderDto extends createZodDto(CreateOrderDtoSchema, 'CreateOrderDto') {}
 ```
@@ -88,14 +88,14 @@ import { ApiDoc } from '@yikart/common'
 @Controller('/material-adaptation')
 export class MaterialAdaptationController {
 
-  @ApiDoc({
-    summary: '适配素材到多个平台',
-    description: '使用 AI 将素材内容适配到指定的社交媒体平台',
-    body: AdaptMaterialDtoSchema,
-    response: [MaterialAdaptationVo],
-  })
-  @Post('/')
-  async adaptMaterial(...): Promise<MaterialAdaptationVo[]> { ... }
+ @ApiDoc({
+ summary: 'Adapt assets to multiple platforms',
+ description: 'use AI Platform',
+ body: AdaptMaterialDtoSchema,
+ response: [MaterialAdaptationVo],
+ })
+ @Post('/')
+ async adaptMaterial(...): Promise<MaterialAdaptationVo[]> { ... }
 }
 ```
 
@@ -103,15 +103,15 @@ export class MaterialAdaptationController {
 
 ```ts
 export const CreateOrderDtoSchema = z.object({
-  productId: z.string().describe('产品 ID'),
-  quantity: z.number().int().positive().default(1).describe('购买数量'),
-  returnTo: z.url().optional().describe('回调地址'),
+ productId: z.string().describe('Product ID'),
+ quantity: z.number().int().positive().default(1).describe('Purchase quantity'),
+ returnTo: z.url().optional().describe('Callback URL'),
 });
 
 export const OrderDetailVoSchema = z.object({
-  id: z.string().describe('订单 ID'),
-  amount: z.number().describe('订单金额'),
-  createdAt: z.date().describe('创建时间'),
+ id: z.string().describe('Order ID'),
+ amount: z.number().describe('Order amount'),
+ createdAt: z.date().describe('Created time'),
 });
 ```
 
@@ -125,7 +125,7 @@ export const OrderDetailVoSchema = z.object({
 
 ## Exceptions & Error Codes
 
-- Only allowed: `new AppException(code)` or `new AppException(code, data)`; messages are generated from code→message mapping, custom overrides are prohibited.
+- Only allowed: `new AppException(code)` or `new AppException(code, data)`; messages are generated from code->message mapping, custom overrides are prohibited.
 
 ```ts
 import { AppException, ResponseCode } from '@yikart/common';
@@ -138,9 +138,9 @@ throw new AppException(ResponseCode.PaymentPriceNotFound, { priceId: 'price_xxx'
 - Success code is fixed at `Success = 0`; business error codes start from `10000` and are allocated by module range, cross-module reuse is prohibited.
 - Naming uses PascalCase and must specify the concrete resource: e.g., `ContractNotFound`, `CommentNotFound`; generic permission names (`Unauthorized`/`AccessDenied` etc.) are prohibited.
 - Define and export only in the common package; all services reference the same source to avoid scattered definitions.
-- Must maintain code→default message mapping; use "Unknown error" for unmatched codes.
+- Must maintain code->default message mapping; use "Unknown error" for unmatched codes.
 - Collaboration with AppException: pass only `code` or `code+data`, custom messages are not allowed (messages are generated from mapping).
-- Addition workflow: Add constant to `ResponseCode` → Add default message to message mapping → Use in business code.
+- Addition workflow: Add constant to `ResponseCode` -> Add default message to message mapping -> Use in business code.
 
 ## Permissions & Data Access
 
