@@ -1,6 +1,6 @@
 ---
 name: translating-videos
-description: Translates videos including subtitles, voice cloning, and lip sync. Use when user wants to translate video, dub video to another language, convert video language, localize video content, create multilingual video, add translated voiceover, change video audio language, or produce foreign language version. 视频翻译、配音翻译、字幕翻译、视频本地化、多语言视频、翻译视频、视频配音、语言转换。
+description: Translates videos including subtitles, voice cloning, and lip sync. Use when user wants to translate video, dub video to another language, convert video language, localize video content, create multilingual video, add translated voiceover, change video audio language, or produce foreign language version. video translation, dubbing translation, subtitle translation, video localization, multilingual video, translate videos, video dubbing, language conversion.
 ---
 
 # Video Translation
@@ -61,8 +61,8 @@ On completion, return the translated video URL.
 
 ```
 submitAideoTask:
-  prompt: "Translate this Chinese video to English, including subtitle translation and voice dubbing with emotion preservation"
-  multiInputs: ["chinese_video.mp4"]
+ prompt: "Translate this Chinese video to English, including subtitle translation and voice dubbing with emotion preservation"
+ multiInputs: ["chinese_video.mp4"]
 ```
 
 ### Example 2: English to Japanese
@@ -71,8 +71,8 @@ submitAideoTask:
 
 ```
 submitAideoTask:
-  prompt: "Translate this English video to Japanese with natural voice cloning and lip sync"
-  multiInputs: ["english_video.mp4"]
+ prompt: "Translate this English video to Japanese with natural voice cloning and lip sync"
+ multiInputs: ["english_video.mp4"]
 ```
 
 ### Example 3: Multi-language Localization
@@ -81,8 +81,8 @@ submitAideoTask:
 
 ```
 submitAideoTask:
-  prompt: "Translate this video to Spanish with dubbed audio and translated subtitles"
-  multiInputs: ["source_video.mp4"]
+ prompt: "Translate this video to Spanish with dubbed audio and translated subtitles"
+ multiInputs: ["source_video.mp4"]
 ```
 
 ## Supported Languages

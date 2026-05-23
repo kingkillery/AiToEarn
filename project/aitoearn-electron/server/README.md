@@ -1,19 +1,22 @@
-# 凯团团服务端
+# Kaituantuan Server
 
-## 简介
-凯团团服务端是基于 NestJS 构建的后端项目，用于支持聚合类业务平台。
+## Introduction
 
-## 环境配置
-项目使用环境变量进行配置管理。请根据实际需要配置环境变量：
+Kaituantuan Server is a backend project built with NestJS to support aggregated business platform scenarios.
 
-1. 复制示例配置文件：
+## Environment Configuration
+
+The project uses environment variables for configuration management. Configure variables based on your environment:
+
+1. Copy the example configuration file:
    ```bash
    cp .env.example .env
    ```
 
-2. 修改 `.env` 文件中的配置项，替换为您实际的配置值。
+2. Update values in the `.env` file with your real configuration.
 
-## 部署
+## Deployment
+
 ```bash
 pm2 start pm2.json
 ```

@@ -1,204 +1,204 @@
-# MobileCalendar 移动端日历组件
+# MobileCalendar mobile
 
-## 概述
+## Overview
 
-移动端专用的日历组件，用于替代桌面端的 FullCalendar 网格视图。
-提供更适合触屏操作的周视图/月视图切换，以及选中日期的任务列表展示。
+mobile, FullCalendar .
+Week view/View switch,task list for selected date.
 
-## 目录结构
+## Directory structure
 
 ```
 MobileCalendar/
-├── index.tsx                  # 主组件，管理状态和组合子组件
-├── MobileCalendarHeader.tsx   # 顶部工具栏（年月选择、视图切换）
-├── MobileWeekView.tsx         # 周视图组件
-├── MobileMonthView.tsx        # 月视图组件
-├── MobileDayRecords.tsx       # 选中日期的任务列表
-├── mobileCalendar.types.ts    # 类型定义
-└── README.md                  # 本文档
+├── index.tsx # main component,manages state and composes subcomponents
+├── MobileCalendarHeader.tsx # top toolbar(,View switch)
+├── MobileWeekView.tsx # week view component
+├── MobileMonthView.tsx # month view component
+├── MobileDayRecords.tsx # task list for selected date
+├── mobileCalendar.types.ts # Type
+└── README.md # this document
 ```
 
-## 组件说明
+## Description
 
 ### MobileCalendar (index.tsx)
 
-主组件，负责：
+main component,is responsible for:
 
-- 管理 `selectedDate`（当前选中日期）
-- 管理 `viewType`（'week' | 'month'）
-- 组合各子组件
-- 接收 `onClickPub` 回调，传递给子组件
+- `selectedDate`(currently selected date)
+- `viewType`('week' | 'month')
+- compose subcomponents
+- `onClickPub` ,
 
 **Props:**
-| 属性 | 类型 | 说明 |
+| property | Type | Description |
 |------|------|------|
-| onClickPub | `(date: string) => void` | 点击添加任务时的回调 |
+| onClickPub | `(date: string) => void` | addTasks |
 
 ### MobileCalendarHeader
 
-顶部工具栏，功能：
+top toolbar,Function:
 
-- 显示当前年月（格式：YYYY/MM）
-- 点击年月弹出月份选择器
-- 周视图/月视图切换按钮
-- 今天按钮
+- show current year/month(:YYYY/MM)
+- click year/month to show month picker
+- week/month switch button
+- Today button
 
 **Props:**
-| 属性 | 类型 | 说明 |
+| property | Type | Description |
 |------|------|------|
-| currentDate | `Date` | 当前显示的日期 |
-| viewType | `'week' \| 'month'` | 当前视图类型 |
-| onDateChange | `(date: Date) => void` | 日期改变回调 |
-| onViewTypeChange | `(type: ViewType) => void` | 视图切换回调 |
-| onToday | `() => void` | 点击今天按钮回调 |
+| currentDate | `Date` | currently displayed date |
+| viewType | `'week' \| 'month'` | Type |
+| onDateChange | `(date: Date) => void` | date change callback |
+| onViewTypeChange | `(type: ViewType) => void` | view switch callback |
+| onToday | `() => void` | Today button |
 
 ### MobileWeekView
 
-周视图组件，功能：
+week view component,Function:
 
-- 显示星期标题行（Sun/Mon/Tue...）
-- 显示当前周的 7 天
-- 支持左右滑动切换周
-- 选中日期高亮
-- 有数据的日期显示小圆点
+- show weekday header row(Sun/Mon/Tue...)
+- show 7 days of current week
+- supports left/right swipe to switch weeks
+- highlight selected date
+- dates with data show dots
 
 **Props:**
-| 属性 | 类型 | 说明 |
+| property | Type | Description |
 |------|------|------|
-| currentDate | `Date` | 当前周的基准日期 |
-| selectedDate | `Date` | 选中的日期 |
-| onDateSelect | `(date: Date) => void` | 选择日期回调 |
-| onWeekChange | `(direction: 'prev' \| 'next') => void` | 周切换回调 |
-| recordMap | `Map<string, PublishRecordItem[]>` | 发布记录数据 |
+| currentDate | `Date` | base date of current week |
+| selectedDate | `Date` | selected date |
+| onDateSelect | `(date: Date) => void` | date select callback |
+| onWeekChange | `(direction: 'prev' \| 'next') => void` | week switch callback |
+| recordMap | `Map<string, PublishRecordItem[]>` | records |
 
 ### MobileMonthView
 
-月视图组件，功能：
+month view component,Function:
 
-- 紧凑型月历网格
-- 有数据的日期显示小圆点
-- 选中日期高亮
-- 点击日期切换选中
+- compact month calendar grid
+- dates with data show dots
+- highlight selected date
+- click date to switch selection
 
 **Props:**
-| 属性 | 类型 | 说明 |
+| property | Type | Description |
 |------|------|------|
-| currentDate | `Date` | 当前月的基准日期 |
-| selectedDate | `Date` | 选中的日期 |
-| onDateSelect | `(date: Date) => void` | 选择日期回调 |
-| recordMap | `Map<string, PublishRecordItem[]>` | 发布记录数据 |
+| currentDate | `Date` | base date of current month |
+| selectedDate | `Date` | selected date |
+| onDateSelect | `(date: Date) => void` | date select callback |
+| recordMap | `Map<string, PublishRecordItem[]>` | records |
 
 ### MobileDayRecords
 
-任务列表组件，功能：
+Tasks,Function:
 
-- 显示选中日期的所有任务
-- 使用 RecordCore 组件展示每条记录
-- 支持 loading 骨架屏
-- 空状态显示
-- 添加任务按钮
+- show all tasks for selected date
+- use RecordCore records
+- support loading skeleton
+- empty state
+- addTasks
 
 **Props:**
-| 属性 | 类型 | 说明 |
+| property | Type | Description |
 |------|------|------|
-| selectedDate | `Date` | 选中的日期 |
-| records | `PublishRecordItem[]` | 当天的发布记录 |
-| loading | `boolean` | 加载状态 |
-| onClickPub | `(date: string) => void` | 添加任务回调 |
+| selectedDate | `Date` | selected date |
+| records | `PublishRecordItem[]` | records |
+| loading | `boolean` | loading state |
+| onClickPub | `(date: string) => void` | addTasks |
 
-## 数据流
+## Data flow
 
 ```
-useCalendarTiming.recordMap (现有 store)
-       ↓
-MobileCalendar (获取整月数据用于显示圆点)
-       ↓
-  ┌────┴────────┐
-  ↓             ↓
-周/月视图       MobileDayRecords
-(根据 recordMap  (根据 selectedDate
- 显示有数据的圆点) 过滤显示任务列表)
+useCalendarTiming.recordMap (existing store)
+ ↓
+MobileCalendar (get full-month data to show dots)
+ ↓
+ ┌────┴────────┐
+ ↓ ↓
+/Month view MobileDayRecords
+(based on recordMap (based on selectedDate
+ show dots for dates with data) filter and display task list)
 ```
 
-**recordMap 结构：**
+**recordMap structure:**
 
 ```typescript
 Map<string, PublishRecordItem[]>
-// key: 日期字符串，格式 'YYYY-MM-DD'
-// value: 该日期的发布记录数组
+// key: date string format 'YYYY-MM-DD'
+// value: Daterecords
 ```
 
-## 复用的组件/工具
+## Reused components/tools
 
-| 组件/工具         | 说明                         |
+| / | Description |
 | ----------------- | ---------------------------- |
-| useCalendarTiming | 数据获取和状态管理 store     |
-| RecordCore        | 任务详情展示（已支持移动端） |
-| useIsMobile       | 设备检测 hook（< 768px）     |
-| getDays           | dayjs 工具函数               |
-| Popover           | shadcn/ui 弹出层组件         |
-| Button/Skeleton   | shadcn/ui 基础组件           |
+| useCalendarTiming | data fetching and state management store |
+| RecordCore | Tasks(mobile) |
+| useIsMobile | device detection hook(< 768px) |
+| getDays | dayjs utility functions |
+| Popover | shadcn/ui popover component |
+| Button/Skeleton | shadcn/ui base component |
 
-## 样式规范
+## specification
 
-- 使用 Tailwind CSS
-- 遵循 shadcn/ui 语义化变量
-- 选中日期: `bg-(--primary-color) text-white`
-- 今天日期: `text-blue-500`（未选中时）
-- 小圆点: `bg-blue-500 w-1.5 h-1.5 rounded-full`
-- 过去日期: `text-muted-foreground`
-- 非当月日期: `text-muted-foreground/40`
+- use Tailwind CSS
+- follow shadcn/ui
+- selected date: `bg-(--primary-color) text-white`
+- today date: `text-blue-500`(when not selected)
+- dot: `bg-blue-500 w-1.5 h-1.5 rounded-full`
+- past date: `text-muted-foreground`
+- non-current-month date: `text-muted-foreground/40`
 
-## 交互说明
+## Description
 
-### 日期选择
+### Date selection
 
-点击任意日期 → 更新 `selectedDate` → 任务列表刷新
+click any date -> `selectedDate` -> task list refreshes
 
-### 周视图滑动
+### Week view swipe
 
-- **左滑**: 显示下一周
-- **右滑**: 显示上一周
-- **实现**: touch 事件监听，计算滑动距离和方向（阈值 50px）
+- **Swipe left**: show next week
+- **Swipe right**: show previous week
+- **Implementation**: touch event listening,calculate swipe distance and direction(Value 50px)
 
-### 视图切换
+### View switch
 
-点击切换按钮 → 周视图 ⇄ 月视图
+click switch button -> Week view ⇄ Month view
 
-- 默认显示周视图
-- 使用图标按钮（CalendarDays / Grid3X3）
+- default is week view
+- use(CalendarDays / Grid3X3)
 
-### 月份跳转
+### Month jump
 
-点击顶部年月 → 弹出 Popover 月份选择器 → 选择月份 → 跳转并获取数据
+click top year/month -> Popover -> select month -> jump and fetch data
 
-## 国际化
+## Internationalization
 
-翻译 key 位于 `account` 命名空间下的 `mobileCalendar` 对象：
+translation keys are located in `account` naming `mobileCalendar` :
 
 ```json
 {
-  "mobileCalendar": {
-    "weekView": "周视图",
-    "monthView": "月视图",
-    "tasks": "任务",
-    "addTask": "添加任务",
-    "noTasks": "该日期暂无任务",
-    "addFirstTask": "添加第一个任务"
-  }
+ "mobileCalendar": {
+ "weekView": "Week view",
+ "monthView": "Month view",
+ "tasks": "Tasks",
+ "addTask": "addTasks",
+ "noTasks": "DateTasks",
+ "addFirstTask": "addTasks"
+ }
 }
 ```
 
-## 注意事项
+## Notes
 
-1. **数据获取**: 切换月份时需要调用 `getPubRecord()` 获取新月份数据
-2. **小圆点显示**: 只在有数据时显示，空数据不显示
-3. **拖拽功能**: 移动端禁用拖拽功能（已在 RecordCore 中处理）
-4. **数据同步**: 保持与 PC 端数据同步，共用 `useCalendarTiming` store
-5. **设备判断**: 使用 `useIsMobile` hook，断点为 768px
+1. **Data fetching**: when switching month call `getPubRecord()` fetch new month data
+2. **dot**: show only when data exists, hide when empty
+3. **Function**: mobileFunction( RecordCore )
+4. **Data sync**: PC Data sync, `useCalendarTiming` store
+5. **device detection**: use `useIsMobile` hook,breakpoint is 768px
 
-## 修改记录
+## Modifyrecords
 
-| 日期       | 修改内容                                      |
+| Date | Modify |
 | ---------- | --------------------------------------------- |
-| 2025-12-30 | 初始版本，实现周视图/月视图切换、任务列表展示 |
+| 2025-12-30 | ,ImplementationWeek view/View switch,Tasks |

@@ -1,6 +1,6 @@
 ---
 name: editing-videos
-description: Video editing using Volcengine Track structure. Supports cutting, trimming, adding text, stickers, audio, filters, effects, transitions, multi-clip compositions, speed adjustment, watermark removal. 视频剪辑、裁剪视频、添加文字、添加水印、添加音频、视频滤镜、视频特效、视频转场、多片段拼接、调整速度、去水印。
+description: Video editing using Volcengine Track structure. Supports cutting, trimming, adding text, stickers, audio, filters, effects, transitions, multi-clip compositions, speed adjustment, watermark removal. video editing, trim video, add text, add watermark, add audio, video filters, video effects, video transitions, multi-clip stitching, speed adjustment, watermark removal.
 ---
 
 # Video Editing with Track Structure
@@ -71,12 +71,12 @@ On completion, return the output video URL to user.
 
 ```json
 {
-  "Canvas": { "Width": 1920, "Height": 1080 },
-  "Output": { "Fps": 30, "Codec": { "VideoCodec": "h264" } },
-  "Track": [
-    [{ "Type": "video", "Source": "vid://xxx", "TargetTime": [0, 5000] }],
-    [{ "Type": "text", "Text": "Hello", "TargetTime": [0, 5000], "Extra": [] }]
-  ]
+ "Canvas": { "Width": 1920, "Height": 1080 },
+ "Output": { "Fps": 30, "Codec": { "VideoCodec": "h264" } },
+ "Track": [
+ [{ "Type": "video", "Source": "vid://xxx", "TargetTime": [0, 5000] }],
+ [{ "Type": "text", "Text": "Hello", "TargetTime": [0, 5000], "Extra": [] }]
+ ]
 }
 ```
 
@@ -84,7 +84,7 @@ On completion, return the output video URL to user.
 - If omitted, auto-detected from the primary video source dimensions
 - If provided manually, MUST match getVideoInfo/uploadAndGetVid output
 - Width = horizontal pixels, Height = vertical pixels
-- Example: 1280x720 video → { Width: 1280, Height: 720 } — NOT { Width: 720, Height: 1280 }
+- Example: 1280x720 video -> { Width: 1280, Height: 720 } — NOT { Width: 720, Height: 1280 }
 ```
 
 **Time unit**: All time values are in **MILLISECONDS** (1 second = 1000 ms)
@@ -102,12 +102,12 @@ Track is a **2D array** `Track[layerIndex][elementIndex]`:
 
 ```json
 {
-  "Type": "video",
-  "Source": "vid://your_vid",
-  "TargetTime": [0, 5000],
-  "Extra": [
-    { "Type": "trim", "StartTime": 10000, "EndTime": 30000 }
-  ]
+ "Type": "video",
+ "Source": "vid://your_vid",
+ "TargetTime": [0, 5000],
+ "Extra": [
+ { "Type": "trim", "StartTime": 10000, "EndTime": 30000 }
+ ]
 }
 ```
 
@@ -115,12 +115,12 @@ Track is a **2D array** `Track[layerIndex][elementIndex]`:
 
 ```json
 {
-  "Type": "audio",
-  "Source": "vid://your_audio_vid",
-  "TargetTime": [0, 10000],
-  "Extra": [
-    { "Type": "a_volume", "Volume": 0.5 }
-  ]
+ "Type": "audio",
+ "Source": "vid://your_audio_vid",
+ "TargetTime": [0, 10000],
+ "Extra": [
+ { "Type": "a_volume", "Volume": 0.5 }
+ ]
 }
 ```
 
@@ -140,12 +140,12 @@ Track is a **2D array** `Track[layerIndex][elementIndex]`:
 
 ```json
 {
-  "Type": "image",
-  "Source": "mid://your_image_mid",
-  "TargetTime": [0, 3000],
-  "Extra": [
-    { "Type": "transform", "PosX": 100, "PosY": 100, "Width": 200, "Height": 200 }
-  ]
+ "Type": "image",
+ "Source": "mid://your_image_mid",
+ "TargetTime": [0, 3000],
+ "Extra": [
+ { "Type": "transform", "PosX": 100, "PosY": 100, "Width": 200, "Height": 200 }
+ ]
 }
 ```
 
@@ -153,16 +153,16 @@ Track is a **2D array** `Track[layerIndex][elementIndex]`:
 
 ```json
 {
-  "Type": "text",
-  "Text": "Your Text Here",
-  "TargetTime": [0, 5000],
-  "FontType": "SY_Black",
-  "FontSize": 120,
-  "FontColor": "#FFFFFFFF",
-  "AlignType": 1,
-  "Extra": [
-    { "Type": "transform", "PosX": 60, "PosY": 440, "Width": 1800, "Height": 200 }
-  ]
+ "Type": "text",
+ "Text": "Your Text Here",
+ "TargetTime": [0, 5000],
+ "FontType": "SY_Black",
+ "FontSize": 120,
+ "FontColor": "#FFFFFFFF",
+ "AlignType": 1,
+ "Extra": [
+ { "Type": "transform", "PosX": 60, "PosY": 440, "Width": 1800, "Height": 200 }
+ ]
 }
 ```
 
@@ -170,14 +170,14 @@ Track is a **2D array** `Track[layerIndex][elementIndex]`:
 
 ```json
 {
-  "Type": "subtitle",
-  "Text": "http://example.com/subtitle.srt",
-  "TargetTime": [0, 20000],
-  "FontType": "ALi_PuHui",
-  "FontSize": 60,
-  "Extra": [
-    { "Type": "transform", "PosX": 40, "PosY": 550, "Width": 1200, "Height": 150 }
-  ]
+ "Type": "subtitle",
+ "Text": "http://example.com/subtitle.srt",
+ "TargetTime": [0, 20000],
+ "FontType": "ALi_PuHui",
+ "FontSize": 60,
+ "Extra": [
+ { "Type": "transform", "PosX": 40, "PosY": 550, "Width": 1200, "Height": 150 }
+ ]
 }
 ```
 
@@ -296,37 +296,37 @@ Example: Center a 600x60 subtitle on 720x1280 canvas:
 
 ### Filter IDs (lut_filter)
 
-| ID      | Name      | Description |
+| ID | Name | Description |
 | ------- | --------- | ----------- |
-| 1184003 | Clear     | Enhanced clarity |
+| 1184003 | Clear | Enhanced clarity |
 | 1184004 | Afternoon | Warm afternoon tone |
-| 1183995 | Vintage   | Retro film look |
-| 1183993 | Friends   | Friends TV show style |
+| 1183995 | Vintage | Retro film look |
+| 1183993 | Friends | Friends TV show style |
 
 ### Transition IDs
 
-| ID      | Name       | Description |
+| ID | Name | Description |
 | ------- | ---------- | ----------- |
 | 1182376 | CircleOpen | Circle wipe open |
 | 1182360 | RotateZoom | Rotate and zoom |
-| 1182370 | DoorOpen   | Door opening reveal |
-| 1182379 | ClockWipe  | Clock sweep wipe |
+| 1182370 | DoorOpen | Door opening reveal |
+| 1182379 | ClockWipe | Clock sweep wipe |
 
 ### Video Animation IDs
 
-| ID      | Name    | Type |
+| ID | Name | Type |
 | ------- | ------- | ---- |
-| 1180337 | FadeIn  | In   |
-| 1180382 | FadeOut | Out  |
-| 1180335 | Shrink  | In   |
-| 1180338 | ZoomIn  | In   |
+| 1180337 | FadeIn | In |
+| 1180382 | FadeOut | Out |
+| 1180335 | Shrink | In |
+| 1180338 | ZoomIn | In |
 
 ### Font IDs
 
-| ID          | Name           |
+| ID | Name |
 | ----------- | -------------- |
-| SY_Black    | Source Han Sans Black |
-| ALi_PuHui   | Alibaba PuHuiTi |
+| SY_Black | Source Han Sans Black |
+| ALi_PuHui | Alibaba PuHuiTi |
 | PM_ZhengDao | Pangmen Zhengdao Title |
 
 ## Examples
@@ -335,33 +335,33 @@ Example: Center a 600x60 subtitle on 720x1280 canvas:
 
 ```json
 {
-  "Canvas": { "Width": 1920, "Height": 1080 },
-  "Track": [[
-    {
-      "Type": "video",
-      "Source": "vid://video1",
-      "TargetTime": [0, 5000],
-      "Extra": [
-        { "Type": "transform", "PosX": 0, "PosY": 0, "Width": 1920, "Height": 1080 }
-      ]
-    },
-    {
-      "Type": "video",
-      "Source": "vid://video2",
-      "TargetTime": [5000, 12000],
-      "Extra": [
-        { "Type": "transform", "PosX": 0, "PosY": 0, "Width": 1920, "Height": 1080 }
-      ]
-    },
-    {
-      "Type": "video",
-      "Source": "vid://video3",
-      "TargetTime": [12000, 20000],
-      "Extra": [
-        { "Type": "transform", "PosX": 0, "PosY": 0, "Width": 1920, "Height": 1080 }
-      ]
-    }
-  ]]
+ "Canvas": { "Width": 1920, "Height": 1080 },
+ "Track": [[
+ {
+ "Type": "video",
+ "Source": "vid://video1",
+ "TargetTime": [0, 5000],
+ "Extra": [
+ { "Type": "transform", "PosX": 0, "PosY": 0, "Width": 1920, "Height": 1080 }
+ ]
+ },
+ {
+ "Type": "video",
+ "Source": "vid://video2",
+ "TargetTime": [5000, 12000],
+ "Extra": [
+ { "Type": "transform", "PosX": 0, "PosY": 0, "Width": 1920, "Height": 1080 }
+ ]
+ },
+ {
+ "Type": "video",
+ "Source": "vid://video3",
+ "TargetTime": [12000, 20000],
+ "Extra": [
+ { "Type": "transform", "PosX": 0, "PosY": 0, "Width": 1920, "Height": 1080 }
+ ]
+ }
+ ]]
 }
 ```
 
@@ -376,26 +376,26 @@ Example: Center a 600x60 subtitle on 720x1280 canvas:
 
 ```json
 {
-  "Canvas": { "Width": 1920, "Height": 1080 },
-  "Track": [[
-    {
-      "Type": "video",
-      "Source": "vid://video1",
-      "TargetTime": [0, 5000],
-      "Extra": [
-        { "Type": "transform", "PosX": 0, "PosY": 0, "Width": 1920, "Height": 1080 },
-        { "Type": "transition", "Source": "1182376", "Duration": 1000 }
-      ]
-    },
-    {
-      "Type": "video",
-      "Source": "vid://video2",
-      "TargetTime": [4000, 9000],
-      "Extra": [
-        { "Type": "transform", "PosX": 0, "PosY": 0, "Width": 1920, "Height": 1080 }
-      ]
-    }
-  ]]
+ "Canvas": { "Width": 1920, "Height": 1080 },
+ "Track": [[
+ {
+ "Type": "video",
+ "Source": "vid://video1",
+ "TargetTime": [0, 5000],
+ "Extra": [
+ { "Type": "transform", "PosX": 0, "PosY": 0, "Width": 1920, "Height": 1080 },
+ { "Type": "transition", "Source": "1182376", "Duration": 1000 }
+ ]
+ },
+ {
+ "Type": "video",
+ "Source": "vid://video2",
+ "TargetTime": [4000, 9000],
+ "Extra": [
+ { "Type": "transform", "PosX": 0, "PosY": 0, "Width": 1920, "Height": 1080 }
+ ]
+ }
+ ]]
 }
 ```
 
@@ -405,17 +405,17 @@ Example: Center a 600x60 subtitle on 720x1280 canvas:
 
 ```json
 {
-  "Canvas": { "Width": 1920, "Height": 1080 },
-  "Track": [[
-    {
-      "Type": "video",
-      "Source": "vid://xxx",
-      "TargetTime": [0, 20000],
-      "Extra": [
-        { "Type": "trim", "StartTime": 10000, "EndTime": 30000 }
-      ]
-    }
-  ]]
+ "Canvas": { "Width": 1920, "Height": 1080 },
+ "Track": [[
+ {
+ "Type": "video",
+ "Source": "vid://xxx",
+ "TargetTime": [0, 20000],
+ "Extra": [
+ { "Type": "trim", "StartTime": 10000, "EndTime": 30000 }
+ ]
+ }
+ ]]
 }
 ```
 
@@ -423,21 +423,21 @@ Example: Center a 600x60 subtitle on 720x1280 canvas:
 
 ```json
 {
-  "Canvas": { "Width": 1920, "Height": 1080 },
-  "Track": [
-    [{ "Type": "video", "Source": "vid://xxx", "TargetTime": [0, 10000] }],
-    [{
-      "Type": "text",
-      "Text": "@MyChannel",
-      "TargetTime": [0, 10000],
-      "FontType": "SY_Black",
-      "FontSize": 60,
-      "FontColor": "#FFFFFFFF",
-      "Extra": [
-        { "Type": "transform", "PosX": 1700, "PosY": 50, "Width": 200, "Height": 60 }
-      ]
-    }]
-  ]
+ "Canvas": { "Width": 1920, "Height": 1080 },
+ "Track": [
+ [{ "Type": "video", "Source": "vid://xxx", "TargetTime": [0, 10000] }],
+ [{
+ "Type": "text",
+ "Text": "@MyChannel",
+ "TargetTime": [0, 10000],
+ "FontType": "SY_Black",
+ "FontSize": 60,
+ "FontColor": "#FFFFFFFF",
+ "Extra": [
+ { "Type": "transform", "PosX": 1700, "PosY": 50, "Width": 200, "Height": 60 }
+ ]
+ }]
+ ]
 }
 ```
 
@@ -445,18 +445,18 @@ Example: Center a 600x60 subtitle on 720x1280 canvas:
 
 ```json
 {
-  "Canvas": { "Width": 1920, "Height": 1080 },
-  "Track": [
-    [{ "Type": "video", "Source": "vid://video", "TargetTime": [0, 30000] }],
-    [{
-      "Type": "audio",
-      "Source": "vid://music",
-      "TargetTime": [0, 30000],
-      "Extra": [
-        { "Type": "a_volume", "Volume": 0.3 }
-      ]
-    }]
-  ]
+ "Canvas": { "Width": 1920, "Height": 1080 },
+ "Track": [
+ [{ "Type": "video", "Source": "vid://video", "TargetTime": [0, 30000] }],
+ [{
+ "Type": "audio",
+ "Source": "vid://music",
+ "TargetTime": [0, 30000],
+ "Extra": [
+ { "Type": "a_volume", "Volume": 0.3 }
+ ]
+ }]
+ ]
 }
 ```
 
@@ -464,17 +464,17 @@ Example: Center a 600x60 subtitle on 720x1280 canvas:
 
 ```json
 {
-  "Canvas": { "Width": 1920, "Height": 1080 },
-  "Track": [[
-    {
-      "Type": "video",
-      "Source": "vid://xxx",
-      "TargetTime": [0, 10000],
-      "Extra": [
-        { "Type": "lut_filter", "TargetTime": [0, 10000], "Source": "1183993", "Intensity": 0.8 }
-      ]
-    }
-  ]]
+ "Canvas": { "Width": 1920, "Height": 1080 },
+ "Track": [[
+ {
+ "Type": "video",
+ "Source": "vid://xxx",
+ "TargetTime": [0, 10000],
+ "Extra": [
+ { "Type": "lut_filter", "TargetTime": [0, 10000], "Source": "1183993", "Intensity": 0.8 }
+ ]
+ }
+ ]]
 }
 ```
 
@@ -482,17 +482,17 @@ Example: Center a 600x60 subtitle on 720x1280 canvas:
 
 ```json
 {
-  "Canvas": { "Width": 1920, "Height": 1080 },
-  "Track": [[
-    {
-      "Type": "video",
-      "Source": "vid://xxx",
-      "TargetTime": [0, 10000],
-      "Extra": [
-        { "Type": "delogo", "TargetTime": [0, 10000], "PosX": 1700, "PosY": 50, "Width": 200, "Height": 80, "Sigma": 30, "Radius": 30 }
-      ]
-    }
-  ]]
+ "Canvas": { "Width": 1920, "Height": 1080 },
+ "Track": [[
+ {
+ "Type": "video",
+ "Source": "vid://xxx",
+ "TargetTime": [0, 10000],
+ "Extra": [
+ { "Type": "delogo", "TargetTime": [0, 10000], "PosX": 1700, "PosY": 50, "Width": 200, "Height": 80, "Sigma": 30, "Radius": 30 }
+ ]
+ }
+ ]]
 }
 ```
 
@@ -502,24 +502,24 @@ Convert a 1280x720 (landscape) video to 720x1280 (portrait) canvas:
 
 ```json
 {
-  "Canvas": { "Width": 720, "Height": 1280 },
-  "Track": [[
-    {
-      "Type": "video",
-      "Source": "vid://xxx",
-      "TargetTime": [0, 10000],
-      "Extra": [
-        {
-          "Type": "transform",
-          "PosX": -280,
-          "PosY": 280,
-          "Width": 1280,
-          "Height": 720,
-          "Rotation": 90
-        }
-      ]
-    }
-  ]]
+ "Canvas": { "Width": 720, "Height": 1280 },
+ "Track": [[
+ {
+ "Type": "video",
+ "Source": "vid://xxx",
+ "TargetTime": [0, 10000],
+ "Extra": [
+ {
+ "Type": "transform",
+ "PosX": -280,
+ "PosY": 280,
+ "Width": 1280,
+ "Height": 720,
+ "Rotation": 90
+ }
+ ]
+ }
+ ]]
 }
 ```
 

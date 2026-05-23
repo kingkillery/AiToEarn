@@ -1,6 +1,6 @@
 ---
 name: composing-videos
-description: Combines multiple videos/images into a single video with optional background audio. Use when user wants to merge clips, concatenate videos, create slideshow from images, stitch videos together, combine media files, add background music to video, mix video with audio, create video montage, or join multiple video segments. 合并视频、拼接视频、图片合成视频、添加背景音乐、视频拼接、多图生成视频、视频混剪、素材合成。
+description: Combines multiple videos/images into a single video with optional background audio. Use when user wants to merge clips, concatenate videos, create slideshow from images, stitch videos together, combine media files, add background music to video, mix video with audio, create video montage, or join multiple video segments. merge videos, stitch videos, image-to-video composition, add background music, video stitching, multi-image video generation, video mashup, asset composition.
 ---
 
 # Video Composition
@@ -61,8 +61,8 @@ On completion, return the output video URL to user.
 
 ```
 submitAideoTask:
-  prompt: "Combine these images into a video, each image displays for 3 seconds with fade transition effects"
-  multiInputs: ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg"]
+ prompt: "Combine these images into a video, each image displays for 3 seconds with fade transition effects"
+ multiInputs: ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg"]
 ```
 
 ### Example 2: Merge Videos with Background Music
@@ -71,8 +71,8 @@ submitAideoTask:
 
 ```
 submitAideoTask:
-  prompt: "Merge these video clips into one video and add the background music"
-  multiInputs: ["clip1.mp4", "clip2.mp4", "clip3.mp4", "background_music.mp3"]
+ prompt: "Merge these video clips into one video and add the background music"
+ multiInputs: ["clip1.mp4", "clip2.mp4", "clip3.mp4", "background_music.mp3"]
 ```
 
 ### Example 3: Create Video Montage
@@ -81,8 +81,8 @@ submitAideoTask:
 
 ```
 submitAideoTask:
-  prompt: "Create a dynamic video montage with smooth transitions between clips"
-  multiInputs: ["vacation1.mp4", "vacation2.mp4", "vacation3.mp4"]
+ prompt: "Create a dynamic video montage with smooth transitions between clips"
+ multiInputs: ["vacation1.mp4", "vacation2.mp4", "vacation3.mp4"]
 ```
 
 ## Priority for Multi-Media Tasks

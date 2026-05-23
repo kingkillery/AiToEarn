@@ -1,6 +1,6 @@
 ---
 name: generating-images
-description: Generates images using AI models (Gemini). AI图像生成、文生图、生成图片。
+description: Generates images using AI models (Gemini). AI image generation, text-to-image, generate images.
 ---
 
 # Image Generation
@@ -27,7 +27,7 @@ Generates images using Gemini AI model (default: gemini-3.1-flash-image-preview,
 ## Multiple Images Strategy
 
 - Call `generateImage` sequentially
-- Display each image immediately with progress (e.g., "已生成 1/3")
+- Display each image immediately with progress (e.g., "Generated 1/3")
 - Use markdown `![desc](url)` format
 
 ## Prompt Writing Guide
@@ -90,42 +90,42 @@ Text in generated images MUST match user's language.
 
 ```
 generateImage:
-  prompt: "A photorealistic close-up portrait of an elderly Japanese ceramicist with deep, sun-etched wrinkles and a warm, knowing smile. He is carefully inspecting a freshly glazed tea bowl."
-  aspectRatio: "3:4"
-  imageSize: "2K"
+ prompt: "A photorealistic close-up portrait of an elderly Japanese ceramicist with deep, sun-etched wrinkles and a warm, knowing smile. He is carefully inspecting a freshly glazed tea bowl."
+ aspectRatio: "3:4"
+ imageSize: "2K"
 ```
 
 ### Stylized Illustration
 
 ```
 generateImage:
-  prompt: "A kawaii-style sticker of a happy red panda wearing a tiny bamboo hat. It's munching on a green bamboo leaf. The design features bold, clean outlines, simple cel-shading, and a vibrant color palette."
-  aspectRatio: "1:1"
-  imageSize: "1K"
+ prompt: "A kawaii-style sticker of a happy red panda wearing a tiny bamboo hat. It's munching on a green bamboo leaf. The design features bold, clean outlines, simple cel-shading, and a vibrant color palette."
+ aspectRatio: "1:1"
+ imageSize: "1K"
 ```
 
 ### Product Photography
 
 ```
 generateImage:
-  prompt: "A high-resolution, studio-lit product photograph of a minimalist ceramic coffee mug in matte black, presented on a polished concrete surface."
-  aspectRatio: "1:1"
-  imageSize: "2K"
+ prompt: "A high-resolution, studio-lit product photograph of a minimalist ceramic coffee mug in matte black, presented on a polished concrete surface."
+ aspectRatio: "1:1"
+ imageSize: "2K"
 ```
 
 ### Minimalist Design
 
 ```
 generateImage:
-  prompt: "A minimalist composition featuring a single, delicate red maple leaf positioned in the bottom-right of the frame. The background is a vast, empty off-white canvas."
-  aspectRatio: "16:9"
-  imageSize: "2K"
+ prompt: "A minimalist composition featuring a single, delicate red maple leaf positioned in the bottom-right of the frame. The background is a vast, empty off-white canvas."
+ aspectRatio: "16:9"
+ imageSize: "2K"
 ```
 
 ### Image Editing
 
 ```
 generateImage:
-  prompt: "Add a vibrant rainbow to the sky, keep all other elements unchanged"
-  imageUrls: ["source.jpg"]
+ prompt: "Add a vibrant rainbow to the sky, keep all other elements unchanged"
+ imageUrls: ["source.jpg"]
 ```

@@ -1,6 +1,6 @@
 ---
 name: transferring-video-styles
-description: Converts live-action videos into artistic styles like comic, anime, manga, 3D cartoon. Use when user wants to transform video style, create anime version, apply artistic effects, convert to cartoon style, make comic video, create manga style video, stylize video. 视频风格转换、动漫风格、漫画风格、卡通风格、视频二次元化、视频风格化、AI风格转换、视频转动漫、视频转漫画。
+description: Converts live-action videos into artistic styles like comic, anime, manga, 3D cartoon. Use when user wants to transform video style, create anime version, apply artistic effects, convert to cartoon style, make comic video, create manga style video, stylize video. VideoStyle,Style,Style,Style,Video,VideoStyle,AIStyle,Video,Video.
 ---
 
 # Video Style Transfer
@@ -18,11 +18,11 @@ Use this skill when:
 
 ## Available Styles
 
-| Style                     | Description                | Best For                        |
+| Style | Description | Best For |
 | ------------------------- | -------------------------- | ------------------------------- |
-| 漫画风 (Comic)            | Bold outlines, flat colors | Action scenes, dramatic content |
-| 3D卡通风格 (3D Cartoon)   | Smooth 3D rendering        | Family content, cute subjects   |
-| 日漫风格 (Japanese Anime) | Anime aesthetics           | Storytelling, character-focused |
+| Comic style (Comic) | Bold outlines, flat colors | Action scenes, dramatic content |
+| 3DStyle (3D Cartoon) | Smooth 3D rendering | Family content, cute subjects |
+| Style (Japanese Anime) | Anime aesthetics | Storytelling, character-focused |
 
 ## Workflow
 
@@ -63,9 +63,9 @@ On completion, return the styled video URL and VID to user.
 
 ```
 1. submitVideoStyleTransfer:
-   - videoInput: "https://example.com/video.mp4"
-   - style: "漫画风"
-   - resolution: "720p"
+ - videoInput: "https://example.com/video.mp4"
+ - style: "Comic style"
+ - resolution: "720p"
 2. Wait 210 seconds
 3. Poll getVideoStyleTransferStatus until completed
 4. Return styled video URL
@@ -75,9 +75,9 @@ On completion, return the styled video URL and VID to user.
 
 ```
 1. submitVideoStyleTransfer:
-   - videoInput: "vid://xxxxx"
-   - style: "日漫风格"
-   - resolution: "1080p"
+ - videoInput: "vid://xxxxx"
+ - style: "Style"
+ - resolution: "1080p"
 2. Wait 210 seconds
 3. Poll getVideoStyleTransferStatus until completed
 4. Return styled video URL
@@ -85,11 +85,11 @@ On completion, return the styled video URL and VID to user.
 
 ## Resolution Selection
 
-| Resolution | Use Case                  | Processing Time |
+| Resolution | Use Case | Processing Time |
 | ---------- | ------------------------- | --------------- |
-| 480p       | Quick testing, previews   | Fastest         |
-| 720p       | Standard quality output   | Normal          |
-| 1080p      | High quality final output | Longest         |
+| 480p | Quick testing, previews | Fastest |
+| 720p | Standard quality output | Normal |
+| 1080p | High quality final output | Longest |
 
 ## Important Notes
 

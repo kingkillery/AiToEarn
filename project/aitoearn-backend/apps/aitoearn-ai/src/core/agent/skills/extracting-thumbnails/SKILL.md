@@ -1,6 +1,6 @@
 ---
 name: extracting-thumbnails
-description: Extracts thumbnails from video URLs. Use when publishing video content that requires a cover image, when the user does not provide a cover/thumbnail, or before publishing to platforms that require cover images (Kwai, Bilibili, YouTube). 提取封面、视频封面、生成封面、缩略图提取、视频缩略图、截取封面。
+description: Extracts thumbnails from video URLs. Use when publishing video content that requires a cover image, when the user does not provide a cover/thumbnail, or before publishing to platforms that require cover images (Kwai, Bilibili, YouTube). extract,Video,,extract,Video,.
 ---
 
 # Thumbnail Extraction
@@ -17,13 +17,13 @@ Use this skill when:
 
 ## Platform Cover Requirements
 
-| Platform | Cover Required | Notes                            |
+| Platform | Cover Required | Notes |
 | -------- | -------------- | -------------------------------- |
-| Kwai     | Yes            | Mandatory for all videos         |
-| Bilibili | Recommended    | Improves click-through rate      |
-| YouTube  | Recommended    | Custom thumbnails increase views |
-| TikTok   | Optional       | Auto-generated if not provided   |
-| Facebook | Optional       | Recommended for better display   |
+| Kwai | Yes | Mandatory for all videos |
+| Bilibili | Recommended | Improves click-through rate |
+| YouTube | Recommended | Custom thumbnails increase views |
+| TikTok | Optional | Auto-generated if not provided |
+| Facebook | Optional | Recommended for better display |
 
 ## Workflow
 
@@ -53,7 +53,7 @@ On success, return the thumbnail URL for use as coverUrl.
 
 ```
 1. createThumbnailTask:
-   - url: "https://example.com/video.mp4"
+ - url: "https://example.com/video.mp4"
 2. Wait 15 seconds
 3. Poll getThumbnailTaskStatus until success
 4. Use returned thumbnail URL as coverUrl
@@ -66,20 +66,20 @@ On success, return the thumbnail URL for use as coverUrl.
 1. User provides video URL, title, description
 2. Check if coverUrl is provided
 3. If no coverUrl:
-   a. createThumbnailTask with videoUrl
-   b. Poll getThumbnailTaskStatus
-   c. Use returned thumbnail as coverUrl
+ a. createThumbnailTask with videoUrl
+ b. Poll getThumbnailTaskStatus
+ c. Use returned thumbnail as coverUrl
 4. Proceed with publishing
 ```
 
 ## Task Status Values
 
-| Status     | Description                           |
+| Status | Description |
 | ---------- | ------------------------------------- |
-| pending    | Task created, waiting to start        |
+| pending | Task created, waiting to start |
 | processing | Task is actively extracting thumbnail |
-| success    | Thumbnail extracted successfully      |
-| failed     | Task failed with error                |
+| success | Thumbnail extracted successfully |
+| failed | Task failed with error |
 
 ## Important Notes
 

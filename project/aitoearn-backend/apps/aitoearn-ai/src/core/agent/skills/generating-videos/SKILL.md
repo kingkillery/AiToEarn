@@ -1,6 +1,6 @@
 ---
 name: generating-videos
-description: Generates videos using Grok (preferred) and Google Veo 3.1 models. Supports text-to-video, image-to-video, first-last-frame, video extension, and reference images. AI视频生成、文生视频、图生视频、首尾帧生成、视频拓展。
+description: Generates videos using Grok (preferred) and Google Veo 3.1 models. Supports text-to-video, image-to-video, first-last-frame, video extension, and reference images. AI video generation, text-to-video, image-to-video, first-last-frame generation, video extension.
 ---
 
 # Video Generation
@@ -37,12 +37,12 @@ Generates videos using **Grok** (preferred) and **Google Veo 3.1** models.
 
 ### Grok Parameters
 
-| Parameter   | Values                                          | Default | Description |
+| Parameter | Values | Default | Description |
 |-------------|-------------------------------------------------|---------|-------------|
-| duration    | 1-15                                            | -       | Video duration in seconds |
-| resolution  | 480p, 720p                                      | 720p    | Video resolution |
-| aspectRatio | 1:1, 16:9, 9:16, 4:3, 3:4, 3:2, 2:3           | 9:16    | Video aspect ratio |
-| imageUrl    | string                                          | -       | Reference image URL for image-to-video |
+| duration | 1-15 | - | Video duration in seconds |
+| resolution | 480p, 720p | 720p | Video resolution |
+| aspectRatio | 1:1, 16:9, 9:16, 4:3, 3:4, 3:2, 2:3 | 9:16 | Video aspect ratio |
+| imageUrl | string | - | Reference image URL for image-to-video |
 
 ### Grok Generation Modes
 
@@ -63,12 +63,12 @@ Generates videos using **Grok** (preferred) and **Google Veo 3.1** models.
 
 Use Veo when you need: video extension, first-last-frame, or reference images.
 
-| Model                         | Speed | Quality | Video Extension | Reference Images | Use Case                         |
+| Model | Speed | Quality | Video Extension | Reference Images | Use Case |
 | ----------------------------- | ----- | ------- | --------------- | ---------------- | -------------------------------- |
-| veo-3.1-fast-generate-preview | Fast  | Good    | Yes             | No               | Default Veo - Most use cases     |
-| veo-3.1-generate-preview      | Slow  | Better  | Yes             | Yes (max 3)      | Best quality + all features      |
-| veo-3.1-fast-generate-001     | Fast  | Good    | No              | No               | Simple generation (no extension) |
-| veo-3.1-generate-001          | Slow  | Better  | No              | No               | Higher quality (no extension)    |
+| veo-3.1-fast-generate-preview | Fast | Good | Yes | No | Default Veo - Most use cases |
+| veo-3.1-generate-preview | Slow | Better | Yes | Yes (max 3) | Best quality + all features |
+| veo-3.1-fast-generate-001 | Fast | Good | No | No | Simple generation (no extension) |
+| veo-3.1-generate-001 | Slow | Better | No | No | Higher quality (no extension) |
 
 **Veo Model Selection**:
 
@@ -78,13 +78,13 @@ Use Veo when you need: video extension, first-last-frame, or reference images.
 
 ### Veo Parameters
 
-| Parameter      | Values            | Default | Description                              |
+| Parameter | Values | Default | Description |
 | -------------- | ----------------- | ------- | ---------------------------------------- |
-| duration       | 4, 6, 8           | 8       | Video duration in seconds                |
-| resolution     | 720p, 1080p, 4000 | 720p    | Video resolution (1080p/4K takes longer) |
-| aspectRatio    | 16:9, 9:16        | 9:16    | Video aspect ratio (vertical by default for social media) |
-| negativePrompt | string            | -       | What to exclude from the video           |
-| seed           | number            | -       | Random seed for reproducibility          |
+| duration | 4, 6, 8 | 8 | Video duration in seconds |
+| resolution | 720p, 1080p, 4000 | 720p | Video resolution (1080p/4K takes longer) |
+| aspectRatio | 16:9, 9:16 | 9:16 | Video aspect ratio (vertical by default for social media) |
+| negativePrompt | string | - | What to exclude from the video |
+| seed | number | - | Random seed for reproducibility |
 
 **Notes**:
 
@@ -99,67 +99,67 @@ Use Veo when you need: video extension, first-last-frame, or reference images.
 
 `[Subject & Background] + [Action] + [Style] + [Camera] + [Atmosphere] + [Audio]`
 
-### 1. Subject & Background (主题与背景)
+### 1. Subject & Background (Subject and background)
 
 Specify your main focus (object, person, animal) and environmental context.
 
 **Examples**:
 
-- "A young woman with long black hair wearing a red dress" / "一位长发黑发、身穿红裙的年轻女子"
-- "White concrete apartment building with organic shapes and lush greenery" / "白色混凝土公寓楼，有机形状，绿植茂盛"
+- "A young woman with long black hair wearing a red dress" / "A young woman with long black hair wearing a red dress"
+- "White concrete apartment building with organic shapes and lush greenery" / "White concrete apartment building with organic shapes and lush greenery"
 
-### 2. Action (动作)
+### 2. Action (Action)
 
 Describe what the subject is doing—walking, running, transforming, etc.
 
 **Examples**:
 
-- "walks slowly towards the camera" / "缓缓走向镜头"
-- "transforms from liquid to solid" / "从液态变为固态"
+- "walks slowly towards the camera" / "walks slowly towards the camera"
+- "transforms from liquid to solid" / "transforms from liquid to solid"
 
-### 3. Style (风格)
+### 3. Style (Style)
 
 Add aesthetic direction using keywords.
 
 **Common Styles**:
 
-- Film noir / 黑色电影
-- Surrealism / 超现实主义
-- Cyberpunk / 赛博朋克
-- 3D cartoon animation / 3D卡通动画
-- Cinematic documentary / 电影纪录片
-- Japanese anime / 日系动漫
+- Film noir / Film noir
+- Surrealism / Surrealism
+- Cyberpunk / Cyberpunk
+- 3D cartoon animation / 3D cartoon animation
+- Cinematic documentary / Cinematic documentary
+- Japanese anime / Japanese anime
 
-### 4. Camera Work (镜头)
+### 4. Camera Work (Camera work)
 
 Control perspective and movement.
 
 **Camera Angles**:
 
-- Aerial shot / 航拍镜头
-- POV (Point of View) / 第一人称视角
-- Close-up / 特写
-- Wide angle / 广角
-- Low angle / 低角度
-- Bird's eye view / 鸟瞰
+- Aerial shot / Camera work
+- POV (Point of View) / POV (Point of View)
+- Close-up / Close-up
+- Wide angle / Wide angle
+- Low angle / Low angle
+- Bird's eye view / Bird's eye view
 
 **Camera Movements**:
 
-- Tracking shot / 跟踪镜头
-- Pan left/right / 左右平移
-- Dolly in/out / 推拉镜头
-- Static shot / 固定镜头
+- Tracking shot / Camera work
+- Pan left/right / Pan left/right
+- Dolly in/out / Camera work
+- Static shot / Camera work
 
-### 5. Atmosphere (氛围)
+### 5. Atmosphere (Atmosphere)
 
 Specify lighting and color mood.
 
 **Examples**:
 
-- "warm golden hour lighting" / "温暖的黄金时段光线"
-- "cool blue tones" / "冷蓝色调"
-- "neon-lit cyberpunk atmosphere" / "霓虹灯赛博朋克氛围"
-- "foggy moonlight" / "雾蒙蒙的月光"
+- "warm golden hour lighting" / "warm golden hour lighting"
+- "cool blue tones" / "cool blue tones"
+- "neon-lit cyberpunk atmosphere" / "CyberpunkAtmosphere"
+- "foggy moonlight" / "foggy moonlight"
 
 ---
 
@@ -167,7 +167,7 @@ Specify lighting and color mood.
 
 Veo 3.1 natively generates synchronized audio. Include audio descriptions in your prompt.
 
-### 1. Dialogue (对话)
+### 1. Dialogue (Dialogue)
 
 Use **quotation marks** for specific speech.
 
@@ -175,45 +175,45 @@ Use **quotation marks** for specific speech.
 
 ```
 A man in a suit stands at a podium, speaking confidently: "Welcome to the future of technology."
-一位穿西装的男子站在讲台上，自信地说："欢迎来到科技的未来。"
+A man in a suit stands at the podium and confidently says: "Welcome to the future of technology."
 ```
 
-### 2. Sound Effects (音效)
+### 2. Sound Effects (Sound effects)
 
 Describe sounds explicitly.
 
 **Examples**:
 
-- "screeching tires" / "轮胎尖叫声"
-- "crackling fire" / "噼啪作响的火焰"
-- "thunder rumbling in the distance" / "远处雷声隆隆"
-- "footsteps echoing in the hallway" / "走廊里回响的脚步声"
+- "screeching tires" / "screeching tires"
+- "crackling fire" / "crackling fire"
+- "thunder rumbling in the distance" / "thunder rumbling in the distance"
+- "footsteps echoing in the hallway" / "footsteps echoing in the hallway"
 
-### 3. Ambient Noise (环境音)
+### 3. Ambient Noise (Ambient noise)
 
 Describe environmental soundscapes.
 
 **Examples**:
 
-- "busy city street with traffic and chatter" / "繁忙的城市街道，车流和人声"
-- "peaceful forest with birds chirping" / "宁静的森林，鸟鸣声"
-- "ocean waves crashing on the shore" / "海浪拍打海岸"
+- "busy city street with traffic and chatter" / "busy city street with traffic and chatter"
+- "peaceful forest with birds chirping" / "peaceful forest with birds chirping"
+- "ocean waves crashing on the shore" / "ocean waves crashing on the shore"
 
-- "busy city street with traffic and chatter" / "繁忙的城市街道，车流和人声"
-- "peaceful forest with birds chirping" / "宁静的森林，鸟鸣声"
-- "ocean waves crashing on the shore" / "海浪拍打海岸"
+- "busy city street with traffic and chatter" / "busy city street with traffic and chatter"
+- "peaceful forest with birds chirping" / "peaceful forest with birds chirping"
+- "ocean waves crashing on the shore" / "ocean waves crashing on the shore"
 
 ## Generation Modes
 
 Modes are auto-detected based on parameters:
 
-| Mode             | Parameters                 | Models Supported              |
+| Mode | Parameters | Models Supported |
 | ---------------- | -------------------------- | ----------------------------- |
-| Text-to-video    | prompt only                | All                           |
-| Image-to-video   | prompt + image             | All                           |
-| First-last-frame | prompt + image + lastFrame | All                           |
-| Video extension  | prompt + video             | Preview models only           |
-| Reference images | prompt + referenceImages   | veo-3.1-generate-preview only |
+| Text-to-video | prompt only | All |
+| Image-to-video | prompt + image | All |
+| First-last-frame | prompt + image + lastFrame | All |
+| Video extension | prompt + video | Preview models only |
+| Reference images | prompt + referenceImages | veo-3.1-generate-preview only |
 
 ---
 
@@ -275,11 +275,11 @@ Extend existing Veo-generated videos.
 
 ### When to Use Each Approach
 
-| Target Duration | Recommended Approach                     |
+| Target Duration | Recommended Approach |
 | --------------- | ---------------------------------------- |
-| ≤ 15 seconds    | **Grok direct generation** (preferred, faster and cost-effective) |
-| 16-36 seconds   | Veo Video Extension (dynamic initial + N extensions) |
-| > 36 seconds    | First-Last-Frame Storyboard              |
+| ≤ 15 seconds | **Grok direct generation** (preferred, faster and cost-effective) |
+| 16-36 seconds | Veo Video Extension (dynamic initial + N extensions) |
+| > 36 seconds | First-Last-Frame Storyboard |
 
 ### Why Grok for ≤ 15s?
 
@@ -308,11 +308,11 @@ Extend existing Veo-generated videos.
 
 | Target | Initial | Extensions | Actual |
 |--------|---------|------------|--------|
-| 18s    | 4s      | 2          | 18s    |
-| 22s    | 8s      | 2          | 22s    |
-| 27s    | 6s      | 3          | 27s    |
-| 29s    | 8s      | 3          | 29s    |
-| 36s    | 8s      | 4          | 36s    |
+| 18s | 4s | 2 | 18s |
+| 22s | 8s | 2 | 22s |
+| 27s | 6s | 3 | 27s |
+| 29s | 8s | 3 | 29s |
+| 36s | 8s | 4 | 36s |
 
 ### Extension Workflow
 
@@ -399,7 +399,7 @@ When concatenating multiple generated video segments, use `submitDirectEditTask`
 
 ```
 For each segment URL:
-  uploadAndGetVid(url) → vid://segment_N, duration_N, width, height
+ uploadAndGetVid(url) -> vid://segment_N, duration_N, width, height
 ```
 
 **Step 2**: Build Track structure
@@ -414,12 +414,12 @@ When videos are generated using Veo first-last-frame with shared keyframes:
 
 ```json
 {
-  "Canvas": { "Width": 1920, "Height": 1080 },
-  "Track": [[
-    { "Type": "video", "Source": "vid://segment_1", "TargetTime": [0, 8000] },
-    { "Type": "video", "Source": "vid://segment_2", "TargetTime": [8000, 16000] },
-    { "Type": "video", "Source": "vid://segment_3", "TargetTime": [16000, 24000] }
-  ]]
+ "Canvas": { "Width": 1920, "Height": 1080 },
+ "Track": [[
+ { "Type": "video", "Source": "vid://segment_1", "TargetTime": [0, 8000] },
+ { "Type": "video", "Source": "vid://segment_2", "TargetTime": [8000, 16000] },
+ { "Type": "video", "Source": "vid://segment_3", "TargetTime": [16000, 24000] }
+ ]]
 }
 ```
 
@@ -431,22 +431,22 @@ When videos are independently generated (not using shared keyframes), transition
 
 ```json
 {
-  "Canvas": { "Width": 1920, "Height": 1080 },
-  "Track": [[
-    {
-      "Type": "video",
-      "Source": "vid://segment_1",
-      "TargetTime": [0, 8000],
-      "Extra": [{ "Type": "transition", "Source": "1182376", "Duration": 500 }]
-    },
-    {
-      "Type": "video",
-      "Source": "vid://segment_2",
-      "TargetTime": [7500, 15500],
-      "Extra": [{ "Type": "transition", "Source": "1182376", "Duration": 500 }]
-    },
-    { "Type": "video", "Source": "vid://segment_3", "TargetTime": [15000, 23000] }
-  ]]
+ "Canvas": { "Width": 1920, "Height": 1080 },
+ "Track": [[
+ {
+ "Type": "video",
+ "Source": "vid://segment_1",
+ "TargetTime": [0, 8000],
+ "Extra": [{ "Type": "transition", "Source": "1182376", "Duration": 500 }]
+ },
+ {
+ "Type": "video",
+ "Source": "vid://segment_2",
+ "TargetTime": [7500, 15500],
+ "Extra": [{ "Type": "transition", "Source": "1182376", "Duration": 500 }]
+ },
+ { "Type": "video", "Source": "vid://segment_3", "TargetTime": [15000, 23000] }
+ ]]
 }
 ```
 
@@ -460,7 +460,7 @@ When videos are independently generated (not using shared keyframes), transition
 **Step 3**: Submit and poll
 
 ```
-submitDirectEditTask(Canvas, Track) → taskId
+submitDirectEditTask(Canvas, Track) -> taskId
 wait 90 seconds
 poll getVideoEditTaskStatus(taskId) every 30 seconds until completed
 ```

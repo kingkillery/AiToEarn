@@ -1,6 +1,6 @@
 ---
 name: analyzing-videos
-description: Analyzes video content and extracts highlights. Use when user wants to analyze video, extract highlights, create video summary, generate video keywords, understand video content, find best moments, create trailer, extract exciting clips, get video insights, or identify viral moments. 视频分析、提取精彩片段、视频摘要、视频理解、精彩集锦、视频关键词、剪辑精华、内容分析、热门片段。
+description: Analyzes video content and extracts highlights. Use when user wants to analyze video, extract highlights, create video summary, generate video keywords, understand video content, find best moments, create trailer, extract exciting clips, get video insights, or identify viral moments. Video,extract,Video,Video,,Video,,,.
 ---
 
 # Video Analysis
@@ -65,8 +65,8 @@ Results vary by task type:
 
 ```
 submitAideoTask:
-  prompt: "Extract the most exciting moments from this video to create a 30-second highlight compilation"
-  multiInputs: ["source_video.mp4"]
+ prompt: "Extract the most exciting moments from this video to create a 30-second highlight compilation"
+ multiInputs: ["source_video.mp4"]
 ```
 
 ### Example 2: Video Understanding
@@ -75,8 +75,8 @@ submitAideoTask:
 
 ```
 submitAideoTask:
-  prompt: "Analyze this video content and generate: summary, keywords, and plot analysis"
-  multiInputs: ["video.mp4"]
+ prompt: "Analyze this video content and generate: summary, keywords, and plot analysis"
+ multiInputs: ["video.mp4"]
 ```
 
 ### Example 3: Create Trailer
@@ -85,8 +85,8 @@ submitAideoTask:
 
 ```
 submitAideoTask:
-  prompt: "Extract the most engaging and exciting moments to create a compelling trailer"
-  multiInputs: ["long_video.mp4"]
+ prompt: "Extract the most engaging and exciting moments to create a compelling trailer"
+ multiInputs: ["long_video.mp4"]
 ```
 
 ### Example 4: Find Viral Moments
@@ -95,8 +95,8 @@ submitAideoTask:
 
 ```
 submitAideoTask:
-  prompt: "Identify and extract the most viral-worthy moments from this video for social media"
-  multiInputs: ["content_video.mp4"]
+ prompt: "Identify and extract the most viral-worthy moments from this video for social media"
+ multiInputs: ["content_video.mp4"]
 ```
 
 ## Output Types
